@@ -1,0 +1,198 @@
+/*
+===============================
+=== RESET ===
+===============================
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*
+=======================
+======= ESTILOS =======
+====== GENERALES ======
+=======================
+*/
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+header, main, footer {
+	width: 100%;
+	max-width: 1200px;
+	margin: 1rem auto;
+}
+
+
+/*
+==============
+=== HEADER ===
+==============
+*/
+.container1 { 
+	padding: 5px;
+	background-color: #000000;
+	display: flex; /* La propiedad display: flex habilita la flexbox */
+	justify-content: space-between; /* distribución de los elementos en el eje horizontal. Valores: 
+									flex-start (justificado a la izquierda)
+									flex-end (justificado a la derecha)
+									center (justificado en el centro)
+									space-around (distribución uniforme del espacio alrededor de las cajas)
+									space-between (distribución uniforme del espacio entre las cajas)*/
+	align-items: stretch;
+	flex-direction: column; /* modificación de la dirección. Valores:
+								row (de izquierda a derecha, es el valor por defecto)
+								row-reverse (de derecha a izquierda)
+								column (de arriba abajo)
+								column-reverse (de abajo a arriba) */
+}
+
+.item1{
+	margin: 10px 10px 5px 10px;
+	padding: 10px;
+	background-color: #27394E;
+	display: flex;
+	flex-direction: row;	
+}
+
+
+.subitem1{
+	width: 20%;
+	margin: 10px;
+	padding: 10px;
+	background-color: #EA584B;
+	flex-grow: 1;
+}
+
+.subitem1:nth-child(2){ /* child selector */
+	width: 80%;
+} 
+
+.item2{
+	margin: 5px 10px 10px 10px;
+	padding: 10px;
+	background-color: #F0763A;
+}
+
+
+.subitem2{
+	margin: 10px;
+	padding: 10px;
+	background-color: #FFCC5E;
+
+}
+
+/*
+=======================
+=== MAIN ===
+=======================
+*/
+
+.container2 { 
+	padding: 5px;
+	background-color: #000000;
+	display: flex; /* La propiedad display: flex habilita la flexbox */
+	justify-content: space-between; /* distribución de los elementos en el eje horizontal. Valores: 
+									flex-start (justificado a la izquierda)
+									flex-end (justificado a la derecha)
+									center (justificado en el centro)
+									space-around (distribución uniforme del espacio alrededor de las cajas)
+									space-between (distribución uniforme del espacio entre las cajas)*/
+	align-items: stretch;
+	flex-direction: row; /* modificación de la dirección. Valores:
+								row (de izquierda a derecha, es el valor por defecto)
+								row-reverse (de derecha a izquierda)
+								column (de arriba abajo)
+								column-reverse (de abajo a arriba) */
+}
+
+.item3{
+	width: 70%;
+	margin: 10px 5px 10px 10px;
+	padding: 10px;
+	background-color: #44465E;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+
+.subitem3{
+	width: 45%;
+	margin: 10px 5px 10px 5px;
+	padding: 10px;
+	background-color: #1664A4;
+	
+
+}
+
+.subitem3a{
+	width: 100%;
+	margin: 10px 5px 10px 5px;
+	padding: 10px;
+	background-color: #6399BB;
+	}
+
+
+.item4{
+	width: 30%;
+	margin: 10px 10px 10px 5px;
+	padding: 10px;
+	background-color: #F94C47;
+	text-align: center;
+
+}
+
+.subitem4{
+	
+	margin: 10px;
+	padding: 10px;
+	background-color: #FFE380;
+
+}
+
+/*
+=======================
+=== FOOTER ===
+=======================
+*/
+
+.container3 { 
+	padding: 5px;
+	background-color: #000000;
+	display: flex; /* La propiedad display: flex habilita la flexbox */
+	justify-content: space-between; /* distribución de los elementos en el eje horizontal. Valores: 
+									flex-start (justificado a la izquierda)
+									flex-end (justificado a la derecha)
+									center (justificado en el centro)
+									space-around (distribución uniforme del espacio alrededor de las cajas)
+									space-between (distribución uniforme del espacio entre las cajas)*/
+	align-items: stretch;
+	flex-direction: column; /* modificación de la dirección. Valores:
+								row (de izquierda a derecha, es el valor por defecto)
+								row-reverse (de derecha a izquierda)
+								column (de arriba abajo)
+								column-reverse (de abajo a arriba) */
+}
+.item5{
+	
+	margin: 10px;
+	padding: 10px;
+	background-color: #E4A434;
+	text-align: center;
+
+}
+.subitem5{
+	
+	margin: 10px;
+	padding: 10px;
+	background-color: #E4A434;
+
+}
+
