@@ -28,6 +28,16 @@ header, main, footer {
 	margin: 10px auto 0px auto;
 }
 
+a{
+    text-decoration: 0;
+    color: #808080;    
+}
+
+a:hover{
+    text-decoration: 0;
+    color: #161616;    
+}
+
 
 /*
 ==============
@@ -54,6 +64,9 @@ header, main, footer {
 	flex-direction: row;	
 }
 
+.imagen-1{
+    width: 3rem;
+}
 
 .subitem1{
 	width: 20%;
@@ -61,6 +74,7 @@ header, main, footer {
 	padding: 10px;
 	flex-grow: 1;
 }
+
 
 .subitem1:nth-child(2){ /* child selector */
 	width: 80%;
@@ -81,28 +95,32 @@ header, main, footer {
     background-repeat: no-repeat;
     background-position: 0 0;
     padding-left: 1.5rem;
-    background-size: 100%;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+              /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
 }
 
 .menu-principal1{
 	background-image: url("../img/iconos/house-chimney-solid.svg");
-	background-size: 100%;
+	background-size: 30%; 
 }
 
 .menu-principal2{
 	background-image: url("../img/iconos/map-location-dot-solid.svg");
+	background-size: 30%; 
 }
 
 .menu-principal3{
 	background-image: url("../img/iconos/square-h-solid.svg");
+	background-size: 20%;
 }
 
 .menu-principal4{
 	background-image: url("../img/iconos/plane-solid.svg");
+	background-size: 25%; 
 }
 
 .menu-principal5{
 	background-image: url("../img/iconos/envelope-open-text-solid.svg");
+	background-size: 20%;
 }
 
 
