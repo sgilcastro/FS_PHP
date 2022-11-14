@@ -68,6 +68,45 @@ header, main, footer {
 	flex-direction: row;
 } 
 
+.menu-principal li{
+    display: inline-block;
+    margin: 0.5rem;
+    font-size: 1rem;
+    text-decoration: 0;
+}
+
+.menu-principal1, .menu-principal2, .menu-principal3,.menu-principal4,.menu-principal5 {
+    list-style: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 1.5rem;
+    background-size: 100%;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+}
+
+.menu-principal1{
+	background-image: url("../img/iconos/house-chimney-solid.svg");
+	background-size: 100%;
+}
+
+.menu-principal2{
+	background-image: url("../img/iconos/map-location-dot-solid.svg");
+}
+
+.menu-principal3{
+	background-image: url("../img/iconos/square-h-solid.svg");
+}
+
+.menu-principal4{
+	background-image: url("../img/iconos/plane-solid.svg");
+}
+
+.menu-principal5{
+	background-image: url("../img/iconos/envelope-open-text-solid.svg");
+}
+
+
+
 .item2{
 	margin: 10px 80px 0px 80px;
 	padding: 10px;
@@ -85,6 +124,31 @@ header, main, footer {
 	text-align: center;
 	color: #F49E7E;
 	font-family: 'IM Fell Double Pica', serif;
+}
+
+.menu-rrss li{
+    display: inline-block;
+    margin: 0.5rem;
+    font-size: 1rem;
+    text-decoration: 0;
+}
+
+.menu-twitter, .menu-facebook {
+	list-style: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 1rem;
+    background-size: 100%;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+}
+
+.menu-twitter{
+	background-image: url("../img/iconos/twitter.svg");
+}
+
+
+.menu-facebook {
+	background-image: url("../img/iconos/square-facebook.svg");
 }
 
 /*
