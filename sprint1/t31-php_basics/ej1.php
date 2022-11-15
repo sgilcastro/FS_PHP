@@ -40,6 +40,12 @@
          /* Variables ejercicio3 */
           define("CONSTANT", "Susana");
 
+        /* Variables ejercicio4 */
+        $X = 5;
+        $Y = 4;
+        $N = 5.35;
+        $M = 2.7;
+
 
        /*Ejercicios*/
 
@@ -78,6 +84,46 @@
         Has d'imprimir-la amb format de títol i lletra en negreta en HTML.*/
         echo "<h1><b>" . CONSTANT . "</b></h1>";        
         
+        echo "<h1>Exercici 4</h1>";
+        /* Declara dues variables X i Y de tipus int, dues variables N i M de tipus double 
+        i assigna a cadascuna un valor. A continuació, mostra per pantalla per a X i Y:
+
+        El valor de cada variable.
+        La suma.
+        La resta.
+        El producte.
+        El mòdul.*/
+
+        echo "<b>Siendo X = " . $X . " y Y = " . $Y . "</b><br>";
+        echo "X + Y = " . $X + $Y . "<br>";
+        echo "X - Y = " . $X - $Y."<br>";
+        echo "X x Y = " . $X * $Y."<br>";
+        echo "El resto de X entre Y = " . $X % $Y."<br><br>";
+
+        /*Per N i M realitzaràs el mateix.*/
+        echo "<b>Siendo M = " . $M . " y N = " . $N . "</b><br>";
+        echo "N + M = " . $N + $M."<br>";
+        echo "N - M = " . $N - $M."<br>";
+        echo "N x M = " . $N * $M ."<br>";
+        echo "El resto de N entre M = " . $N % $M."<br><br>";
+
+        /*Per a totes les variables (X, Y, N, M)
+
+        El doble de cada variable.
+        La suma de totes les variables.
+        El producte de totes les variables.*/
+
+        echo "El doble de X es " . ($X * 2) . "<br>";
+        echo "El doble de Y es " . ($Y * 2) . "<br>";
+        echo "El doble de M es " . ($M * 2) . "<br>";
+        echo "El doble de N es " . ($N * 2) . "<br><br>";
+
+        echo "X + Y + M + N = " . ($X + $Y + $M + $N) . "<br><br>";
+        
+        echo "X x Y x M x N = " . ($X * $Y * $M * $N) . "<br><br>";
+
+
+
         ?>
 
     </body>
