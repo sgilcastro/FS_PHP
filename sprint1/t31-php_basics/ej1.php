@@ -37,6 +37,9 @@
         $invert = strrev($hello);
         $curs = "Este es el curso de PHP";
 
+         /* Variables ejercicio3 */
+          define("CONSTANT", "Susana");
+
 
        /*Ejercicios*/
 
@@ -68,6 +71,12 @@
         /*Crea una nova variable amb el contingut "Aquest és el curs de PHP"
         i imprimeix per pantalla la concatenació de tots dos strings.*/
         echo $hello . " " . $curs;
+
+
+        echo "<h1>Exercici 3</h1>";
+        /* Crea una constant que contingui el teu nom i l'imprimeixi per pantalla.
+        Has d'imprimir-la amb format de títol i lletra en negreta en HTML.*/
+        echo "<h1><b>" . CONSTANT . "</b></h1>";        
         
         ?>
 
