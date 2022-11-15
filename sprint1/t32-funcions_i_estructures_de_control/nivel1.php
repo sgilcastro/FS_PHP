@@ -22,6 +22,7 @@
         $edad2 = 48;
 
         /* Variables ejercicio2 */
+        
 
         /* Variables ejercicio3 */
 
@@ -61,8 +62,22 @@
         <?PHP
         /* Per jugar a l'"amagatall" se'ns ha demanat un programa que compti fins a 10.
         Però la persona que comptarà és una mica tramposa i ho farà comptant de dos en dos.
-        Crea una funció que compti fins a 10, de 2 en 2, mostrant cada número del compte 
+        Crea una funció que compti fins a 10, de 2 en 2, mostrant cada número del compte
         per pantalla.*/
+        function escondite() {
+            $i = 0;
+            while ($i <= 10) {
+                if ($i % 2 == 0) {
+                    echo $i . " ";
+                    $i++;
+                } else {
+                    $i++;
+                }
+            }
+        }
+
+        escondite();
+
         ?>
 
        <h1>Exercici 3</h1>
@@ -74,7 +89,7 @@
         <h1>Exercici 4</h1>
         <?PHP
         /* Per prevenir oblits en utilitzar la nostra meravellosa opció "amagatall" establirem un
-         paràmetre per defecte igual a 10 a la funció que s'encarrega de fer aquest compte.*/         
+         paràmetre per defecte igual a 10 a la funció que s'encarrega de fer aquest compte.*/
         ?>
 
         <h1>Exercici 5</h1>
