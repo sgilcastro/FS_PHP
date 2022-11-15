@@ -5,21 +5,12 @@
     <head>
         <title>Sprint 1. Php basicos (Tema 3).</title>
         <meta charset="utf-8">
-        <meta name="description" content="Entrega d'exercici: Php basics (Tema 3). Sprint 1. Nivel 1. ejercicios 1, 2, 3, 4 y 5">
+        <meta name="description" content=
+        "Entrega d'exercici: Php basics (Tema 3). Sprint 1. Nivel 1. ejercicios 1, 2, 3, 4 y 5">
         <meta name="author" content="Susana Gil">
         <meta name="keywords" content="php html5">
-        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1"> <!-- Este meta se usa para la visualización en pantallas móviles-->
-        
-        <!-- <meta name="robots" content="no-index"> esta linea sólo se se usa si no quieres indexar. Por defecto indexa siempre -->
-        
-        <!-- css reset -->
-        <link rel="stylesheet" type="text/css" href="css/normalize.css"> 
-
-        <!-- css mi estilo -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-
-    </head>
-
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+        <!-- Este meta se usa para la visualización en pantallas móviles-->
 
     <body>
         <?PHP
@@ -46,6 +37,12 @@
         $N = 5.35;
         $M = 2.7;
 
+        /* Variables ejercicio4 */
+        $edad_amigos = array(40,46,39,32,48);
+        $edad_familia = array(47,7,48);
+        
+
+        
 
        /*Ejercicios*/
 
@@ -82,10 +79,10 @@
         echo "<h1>Exercici 3</h1>";
         /* Crea una constant que contingui el teu nom i l'imprimeixi per pantalla.
         Has d'imprimir-la amb format de títol i lletra en negreta en HTML.*/
-        echo "<h1><b>" . CONSTANT . "</b></h1>";        
+        echo "<h1><b>" . CONSTANT . "</b></h1>";
         
         echo "<h1>Exercici 4</h1>";
-        /* Declara dues variables X i Y de tipus int, dues variables N i M de tipus double 
+        /* Declara dues variables X i Y de tipus int, dues variables N i M de tipus double
         i assigna a cadascuna un valor. A continuació, mostra per pantalla per a X i Y:
 
         El valor de cada variable.
@@ -122,7 +119,31 @@
         
         echo "X x Y x M x N = " . ($X * $Y * $M * $N) . "<br><br>";
 
+        echo "<h1>Exercici 5</h1>";
 
+        /*Crea dos arrays, un que inclogui 5 integers, i un altre que inclogui 3 integers.
+        Afegeix un valor més a l'array que conté 3 integers.*/
+        
+        $edad_familia[] = 33;
+
+        print_r($edad_familia);
+        
+        echo "<br>";
+
+        /*Mescla els dos arrays i imprimeix la mida de l'array resultant per pantalla.
+        Ara imprimeix per pantalla l'array resultant valor a valor.*/
+        
+        $edades = array_merge($edad_amigos, $edad_familia);
+
+        print_r($edades);
+
+        /*Important
+
+        Pot ser que les funcions var_dump () i / o print_r () et resultin útils per a
+        visualitzar el contingut de les teves arrays.
+        Per saber més:
+        Sobre els Arrays, consulta el PDF corresponent de la carpeta ->PDF's de PHP (Tema 3).
+        */
 
         ?>
 
