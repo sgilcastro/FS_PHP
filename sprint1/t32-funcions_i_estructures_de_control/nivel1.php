@@ -25,7 +25,7 @@
         
 
         /* Variables ejercicio3 */
-
+        $num = 20;
         /* Variables ejercicio4 */
 
         /* Variables ejercicio5 */
@@ -64,16 +64,14 @@
         Però la persona que comptarà és una mica tramposa i ho farà comptant de dos en dos.
         Crea una funció que compti fins a 10, de 2 en 2, mostrant cada número del compte
         per pantalla.*/
-        function escondite () {
-            $i = 0;
-            while ($i <= 10) {
+        function escondite() {
+        
+            for ($i = 1; ($i <= 10); $i++) {
                 if ($i % 2 == 0) {
                     echo $i . " ";
-                    $i++;
-                } else {
-                    $i++;
                 }
             }
+                
         }
 
         escondite();
@@ -84,6 +82,21 @@
         <?PHP
         /* Imagina't que volem que compti fins a un nombre diferent de 10.
         Programa la funció perquè el final del compte estigui parametritzat.*/
+
+        function contar($num) {
+            $i = 0;
+            while ($i <= $num) {
+                if ($i % 2 == 0) {
+                    echo $i . " ";
+                    $i++;
+                } else {
+                    $i++;
+                }
+            }
+        }
+
+        contar($num);
+
         ?>
 
         <h1>Exercici 4</h1>
