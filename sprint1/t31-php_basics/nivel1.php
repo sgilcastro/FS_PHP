@@ -13,8 +13,10 @@
         <!-- Este meta se usa para la visualización en pantallas móviles-->
 
     <body>
-        <?PHP
+        
+        <!-- Variables -->
 
+        <?PHP
         /* Variables ejercicio1 */
         $nombre = "Susana";
         $edad = 48;
@@ -40,11 +42,14 @@
         /* Variables ejercicio5 */
         $edad_amigos = array(40,46,39,32,48);
         $edad_familia = array(47,7,48);
-                
+        
+        ?>
 
-       /*Ejercicios*/
+        <!-- Ejercicios -->
+       
+        <h1>Exercici 1</h1>
 
-        echo "<h1>Exercici 1</h1>";
+        <?PHP
         /* Defineix una variable de cada tipus: integer,double,string i boolean. Després, imprimeix-les per pantalla.*/
         echo "Mi nombre es "
         . $nombre . ". Mido "
@@ -72,14 +77,21 @@
         /*Crea una nova variable amb el contingut "Aquest és el curs de PHP"
         i imprimeix per pantalla la concatenació de tots dos strings.*/
         echo $hello . " " . $curs;
+        ?>
 
+        <h1>Exercici 3</h1>
 
-        echo "<h1>Exercici 3</h1>";
+        <?PHP
         /* Crea una constant que contingui el teu nom i l'imprimeixi per pantalla.
         Has d'imprimir-la amb format de títol i lletra en negreta en HTML.*/
+        
         echo "<h1><b>" . CONSTANT . "</b></h1>";
         
-        echo "<h1>Exercici 4</h1>";
+        ?>
+
+        <h1>Exercici 4</h1>
+        
+        <?PHP
         /* Declara dues variables X i Y de tipus int, dues variables N i M de tipus double
         i assigna a cadascuna un valor. A continuació, mostra per pantalla per a X i Y:
 
@@ -116,9 +128,11 @@
         echo "X + Y + M + N = " . ($X + $Y + $M + $N) . "<br><br>";
         
         echo "X x Y x M x N = " . ($X * $Y * $M * $N) . "<br><br>";
+        ?>
 
-        echo "<h1>Exercici 5</h1>";
+        <h1>Exercici 5</h1>
 
+        <?PHP
         /*Crea dos arrays, un que inclogui 5 integers, i un altre que inclogui 3 integers.
         Afegeix un valor més a l'array que conté 3 integers.*/
         
