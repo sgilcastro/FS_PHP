@@ -176,7 +176,14 @@
         Important
         Consell: pot ser que la funció rand () et resulti útil. */
 
-   
+        /*mt_rand o rand  */
+
+        function isBitten() {
+            $d=mt_rand(1, 100);
+            echo $d ;
+        }
+        
+        isBitten();
 
         ?>
 
