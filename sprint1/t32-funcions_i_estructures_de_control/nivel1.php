@@ -19,7 +19,7 @@
         /* Variables ejercicio1 */
         $a = 0;
         $edad1 = 45;
-        $edad2 = 48;
+        $edad2 = 68;
 
         /* Variables ejercicio2 */
         
@@ -29,7 +29,7 @@
         /* Variables ejercicio4 */
 
         /* Variables ejercicio5 */
-
+        $nota = 5;
         /* Variables ejercicio6 */
 
         ?>
@@ -44,17 +44,18 @@
         function parImpar($a) {
 
             if ($a % 2 == 0) {
-                echo "Tu edad es par.<br>";
+                echo "Tienes " . $a . " años. Tu edad es par.<br>";
             } else {
-                echo "Tu edad es impar.<br>";
+                echo "Tienes " . $a . " años. Tu edad es impar.<br>";
             }
         }
 
-        echo "Tienes " . $edad1 . ". ";
+        parImpar($edad2);
+
         parImpar($edad1);
         
-        echo "Tienes " . $edad2. ". ";
-        parImpar($edad2);
+        parImpar(11);
+
 
         ?>
 
@@ -84,6 +85,7 @@
         Programa la funció perquè el final del compte estigui parametritzat.*/
 
         function contar($num) {
+            $num;
             $i = 0;
             while ($i <= $num) {
                 if ($i % 2 == 0) {
@@ -96,16 +98,34 @@
         }
 
         contar($num);
+        echo "<br>";
+        contar(50);
 
         ?>
 
         <h1>Exercici 4</h1>
+
         <?PHP
         /* Per prevenir oblits en utilitzar la nostra meravellosa opció "amagatall" establirem un
          paràmetre per defecte igual a 10 a la funció que s'encarrega de fer aquest compte.*/
+
+         function escondite2($num = 10) {
+            for ($i = 1; ($i <= $num); $i++) {
+                if ($i % 2 == 0) {
+                    echo $i . " ";
+                }
+            }
+
+            echo "<br>";
+                
+        }
+        escondite2();
+
+        escondite2(20);
         ?>
 
         <h1>Exercici 5</h1>
+
         <?PHP
         /* Escriure una funció per verificar el grau d'un/a estudiant d'acord amb la nota.
         Condicions:
@@ -113,7 +133,12 @@
         Si la nota està entre 45% i 59%, el grau hauria de ser Segona Divisió.
         Si la nota està entre 33% to 44%, el grau hauria de ser Tercera Divisió.
         Si la nota és menor a 33%, l'estudiant reprovarà.*/
+        
+
+
         ?>
+
+
 
         <h1>Exercici 6</h1>
         <?PHP
@@ -122,6 +147,9 @@
         Escriu La funció isBitten () que retorna TRUE amb un 50% de probabilitat i FALSE en cas contrari.
         Important
         Consell: pot ser que la funció rand () et resulti útil. */
+
+   
+
         ?>
 
     </body>
