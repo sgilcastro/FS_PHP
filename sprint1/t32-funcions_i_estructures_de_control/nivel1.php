@@ -134,7 +134,35 @@
         Si la nota està entre 33% to 44%, el grau hauria de ser Tercera Divisió.
         Si la nota és menor a 33%, l'estudiant reprovarà.*/
         
+        function grado($nota, $notamax = 10) {
+            
+            $porcentaje = ($nota / $notamax) * 100;
 
+            if ($porcentaje >= 60 && $porcentaje <=100) {
+                echo $porcentaje . "%. Primera División";
+            } else if ($porcentaje < 60 && $porcentaje >= 45) {
+                echo $porcentaje . "%. Segunda División";
+            } else if ($porcentaje < 45 && $porcentaje >= 33) {
+                echo $porcentaje . "%. Tercera División";
+            } else if ($porcentaje >= 0 && $porcentaje < 33) {
+                echo $porcentaje . "%. Tienes que reprobar";
+            } else {
+                echo "Revisa la nota introducida. Tu nota es "
+                . $nota . " y no puede ser menor de 0 ni mayor de $notamax";
+            }
+        
+        }
+        
+        grado($nota);
+        echo "<br>";
+        grado(3.5);
+        echo "<br>";
+        grado(3, 12);
+        echo "<br>";
+        grado(13);
+        echo "<br>";
+        grado(-1);
+        echo "<br>";
 
         ?>
 
