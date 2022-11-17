@@ -16,12 +16,12 @@
         
         <!-- Variables -->
 
-        <?PHP
+        <?php
         /* Variables ejercicio1 */
         $nombre = "Susana";
         $edad = 48;
         $altura = 1.64;
-        $paro = "false";
+        $paro = false;
 
         /* Variables ejercicio2 */
         $hello = "Hello, World!";
@@ -49,7 +49,7 @@
        
         <h1>Exercici 1</h1>
 
-        <?PHP
+        <?php
         /* Defineix una variable de cada tipus: integer,double,string i boolean. Després, imprimeix-les per pantalla.*/
         echo "Mi nombre es "
         . $nombre . ". Mido "
@@ -81,7 +81,7 @@
 
         <h1>Exercici 3</h1>
 
-        <?PHP
+        <?php
         /* Crea una constant que contingui el teu nom i l'imprimeixi per pantalla.
         Has d'imprimir-la amb format de títol i lletra en negreta en HTML.*/
         
@@ -91,7 +91,7 @@
 
         <h1>Exercici 4</h1>
         
-        <?PHP
+        <?php
         /* Declara dues variables X i Y de tipus int, dues variables N i M de tipus double
         i assigna a cadascuna un valor. A continuació, mostra per pantalla per a X i Y:
 
@@ -132,7 +132,7 @@
 
         <h1>Exercici 5</h1>
 
-        <?PHP
+        <?php
         /*Crea dos arrays, un que inclogui 5 integers, i un altre que inclogui 3 integers.
         Afegeix un valor més a l'array que conté 3 integers.*/
         
@@ -142,11 +142,16 @@
         
         echo "<br>";
 
-        /*Mescla els dos arrays i imprimeix la mida de l'array resultant per pantalla.
-        Ara imprimeix per pantalla l'array resultant valor a valor.*/
-        
+        /*Mescla els dos arrays i imprimeix la mida de l'array resultant per pantalla. */
         $edades = array_merge($edad_amigos, $edad_familia);
 
+        count($edades);
+        echo "<br>";
+        sizeof($edades);
+
+
+        /*Ara imprimeix per pantalla l'array resultant valor a valor.*/
+        
         print_r($edades);
 
         /*Important
