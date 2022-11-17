@@ -66,7 +66,7 @@
         Crea una funció que compti fins a 10, de 2 en 2, mostrant cada número del compte
         per pantalla.*/
         function escondite() {
-            for ($i = 1; ($i <= 10); $i = $i + 2) {
+            for ($i = 0; ($i <= 10); $i = $i + 2) {
                 echo $i . " ";
             }
         }
