@@ -29,7 +29,7 @@
         /* Variables ejercicio4 */
 
         /* Variables ejercicio5 */
-        $nota = 5;
+        $nota = 9;
         /* Variables ejercicio6 */
 
         ?>
@@ -133,21 +133,22 @@
 
             $porcentaje = ($nota / $notamax) * 100;
 
-            if ($porcentaje >= 0 && $porcentaje <= 100) {
+            if ($porcentaje < 0 || $porcentaje > 100) {
+                echo "Revisa la nota introducida. Tu nota es " . $nota . " y no puede ser menor de 0 ni mayor de " . $notamax;
+            } else {
                 if ($porcentaje < 60) {
                     if ($porcentaje  < 45)   {
                         if ($porcentaje  < 33) {
                             echo $porcentaje . "%. Tienes que reprobar";
                         } else {
                             echo $porcentaje . "%. Tercera División";
-                        }
+                        }     
                     } else {
                         echo $porcentaje . "%. Segunda División";
+                    }
                 } else {
-                echo $porcentaje . "%. Primera División";
+                    echo $porcentaje . "%. Primera División";
                 }
-            } else {
-                echo "Revisa la nota introducida. Tu nota es " . $nota . " y no puede ser menor de 0 ni mayor de " . $notamax;
             }
             
             /*
@@ -165,9 +166,11 @@
             }*/
         
         }
-        
+
         grado($nota);
         echo "<br>";
+        grado(5);
+        echo "<br>";        
         grado(3.5);
         echo "<br>";
         grado(3, 12);
