@@ -130,6 +130,8 @@
         Si la nota és menor a 33%, l'estudiant reprovarà.*/
         
         function grado($nota, $notamax = 10) {
+
+            $porcentaje = ($nota / $notamax) * 100;
             
             if ($porcentaje < 60) {
                 if ($porcentaje  < 45)   {
@@ -145,8 +147,8 @@
                 echo $porcentaje . "%. Primera División";
             }
 
-            /*$porcentaje = ($nota / $notamax) * 100;
-
+            
+            /*
             if ($porcentaje >= 60 && $porcentaje <=100) {
                 echo $porcentaje . "%. Primera División";
             } else if ($porcentaje < 60 && $porcentaje >= 45) {
