@@ -177,13 +177,38 @@
         Consell: pot ser que la funció rand () et resulti útil. */
 
         /*mt_rand o rand  */
+        $mordedura = false;
 
         function isBitten() {
-            $d=mt_rand(1, 100);
-            echo $d ;
+            $d=mt_rand(1, 2);
+            
+            //echo $d;
+            //echo "<br>";
+            
+            switch ($d) {
+                case 1:
+                    $mordedura = true;
+                    break;
+                case 2:
+                    $mordedura = false;
+                    break;
+            }
+
+            /*
+            if ($mordedura = true) {
+                echo "Charlie te ha mordido";
+            } else {
+                echo "Charlie no te ha mordido";
+            }*/
+
+            //usando el operador ternario
+            echo $mordedura ? "Charlie te ha mordido" : "Charlie no te ha mordido";
+
         }
         
         isBitten();
+
+
 
         ?>
 
