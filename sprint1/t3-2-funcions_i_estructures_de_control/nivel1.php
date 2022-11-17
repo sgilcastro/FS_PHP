@@ -132,21 +132,23 @@
         function grado($nota, $notamax = 10) {
 
             $porcentaje = ($nota / $notamax) * 100;
-            
-            if ($porcentaje < 60) {
-                if ($porcentaje  < 45)   {
-                    if ($porcentaje  < 33) {
-                        echo $porcentaje . "%. Tienes que reprobar";
+
+            if ($porcentaje >= 0 && $porcentaje <= 100) {
+                if ($porcentaje < 60) {
+                    if ($porcentaje  < 45)   {
+                        if ($porcentaje  < 33) {
+                            echo $porcentaje . "%. Tienes que reprobar";
+                        } else {
+                            echo $porcentaje . "%. Tercera División";
+                        }
                     } else {
-                        echo $porcentaje . "%. Tercera División";
-                    }
+                        echo $porcentaje . "%. Segunda División";
                 } else {
-                    echo $porcentaje . "%. Segunda División";
+                echo $porcentaje . "%. Primera División";
                 }
             } else {
-                echo $porcentaje . "%. Primera División";
+                echo "Revisa la nota introducida. Tu nota es " . $nota . " y no puede ser menor de 0 ni mayor de " . $notamax;
             }
-
             
             /*
             if ($porcentaje >= 60 && $porcentaje <=100) {
