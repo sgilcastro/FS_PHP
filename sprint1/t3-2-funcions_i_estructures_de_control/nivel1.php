@@ -83,12 +83,8 @@
             $num;
             $i = 0;
             while ($i <= $num) {
-                if ($i % 2 == 0) {
-                    echo $i . " ";
-                    $i++;
-                } else {
-                    $i++;
-                }
+                echo $i . " ";
+                    $i = $i + 2;
             }
         }
 
@@ -105,10 +101,8 @@
          paràmetre per defecte igual a 10 a la funció que s'encarrega de fer aquest compte.*/
 
          function escondite2($num = 10) {
-            for ($i = 1; ($i <= $num); $i++) {
-                if ($i % 2 == 0) {
-                    echo $i . " ";
-                }
+            for ($i = 0; ($i <= $num); $i = $i + 2) {
+                echo $i . " ";
             }
 
             echo "<br>";
