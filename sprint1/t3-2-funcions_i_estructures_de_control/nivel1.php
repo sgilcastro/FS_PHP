@@ -66,15 +66,10 @@
         Crea una funció que compti fins a 10, de 2 en 2, mostrant cada número del compte
         per pantalla.*/
         function escondite() {
-        
-            for ($i = 1; ($i <= 10); $i++) {
-                if ($i % 2 == 0) {
-                    echo $i . " ";
-                }
+            for ($i = 1; ($i <= 10); $i = $i + 2) {
+                echo $i . " ";
             }
-                
         }
-
         escondite();
         
         ?>
@@ -136,7 +131,21 @@
         
         function grado($nota, $notamax = 10) {
             
-            $porcentaje = ($nota / $notamax) * 100;
+            if ($porcentaje < 60) {
+                if ($porcentaje  < 45)   {
+                    if ($porcentaje  < 33) {
+                        echo $porcentaje . "%. Tienes que reprobar";
+                    } else {
+                        echo $porcentaje . "%. Tercera División";
+                    }
+                } else {
+                    echo $porcentaje . "%. Segunda División";
+                }
+            } else {
+                echo $porcentaje . "%. Primera División";
+            }
+
+            /*$porcentaje = ($nota / $notamax) * 100;
 
             if ($porcentaje >= 60 && $porcentaje <=100) {
                 echo $porcentaje . "%. Primera División";
@@ -148,8 +157,8 @@
                 echo $porcentaje . "%. Tienes que reprobar";
             } else {
                 echo "Revisa la nota introducida. Tu nota es "
-                . $nota . " y no puede ser menor de 0 ni mayor de $notamax";
-            }
+                . $nota . " y no puede ser menor de 0 ni mayor de " . $notamax;
+            }*/
         
         }
         
