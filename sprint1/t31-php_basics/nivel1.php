@@ -148,7 +148,8 @@
         echo "<br>";
         echo "La longitud de la mezcla de los dos arrays es: " . count($edades) . "(usando count())";
         echo "<br>";
-        echo "La longitud de la mezcla de los dos arrays es: " . sizeof($edades). "(usando sizeof() que es lo mismo que el count())";
+        echo "La longitud de la mezcla de los dos arrays es: " . sizeof($edades). "(usando sizeof()
+        que es lo mismo que el count())";
         echo "<br>";
 
         /*Ara imprimeix per pantalla l'array resultant valor a valor.*/
