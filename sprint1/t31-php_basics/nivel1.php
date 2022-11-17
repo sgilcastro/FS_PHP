@@ -145,13 +145,15 @@
         /*Mescla els dos arrays i imprimeix la mida de l'array resultant per pantalla. */
         $edades = array_merge($edad_amigos, $edad_familia);
 
-        count($edades);
         echo "<br>";
-        sizeof($edades);
-
+        echo "La longitud de la mezcla de los dos arrays es: " . count($edades) . "(usando count())";
+        echo "<br>";
+        echo "La longitud de la mezcla de los dos arrays es: " . sizeof($edades). "(usando sizeof() que es lo mismo que el count())";
+        echo "<br>";
 
         /*Ara imprimeix per pantalla l'array resultant valor a valor.*/
         
+        echo "<br>";
         print_r($edades);
 
         /*Important
