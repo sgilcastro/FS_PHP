@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        
+
     <?php
 
         class Employee {
@@ -51,7 +51,8 @@
             $emp2->initialize("Pepe", 7000);
             echo $emp2->print();
             echo '<br>';
-?>
+    ?>
+    
     </body>
 
 </html>
