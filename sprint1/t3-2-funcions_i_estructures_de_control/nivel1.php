@@ -12,7 +12,8 @@
         <meta name="keywords" content="php html5 funciones controldeflujo">
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
         <!-- Este meta se usa para la visualización en pantallas móviles-->
-
+    </head>
+    
     <body>
         <?PHP
 
