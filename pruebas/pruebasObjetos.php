@@ -12,7 +12,7 @@
 
         $emp1= new miClase();
 
-        echo $emp1->print(5,5)
+        echo $emp1->print(5, 5);
        
 
                
