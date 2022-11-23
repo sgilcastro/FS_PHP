@@ -42,15 +42,15 @@
             }
         }
             //Creación y asignación de objetos
-            $emp1 = new Employee();
-            $emp1->initialize("Susana", 5000);
-            echo $emp1->print();
-            echo '<br>';
+        $emp1 = new Employee();
+        $emp1->initialize("Susana", 5000);
+        echo $emp1->print();
+        echo '<br>';
             
-            $emp2 = new Employee();
-            $emp2->initialize("Pepe", 7000);
-            echo $emp2->print();
-            echo '<br>';
+        $emp2 = new Employee();
+        $emp2->initialize("Pepe", 7000);
+        echo $emp2->print();
+        echo '<br>';
     ?>
     
     </body>

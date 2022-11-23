@@ -24,7 +24,7 @@
         }
     }
 
-    //Clase hija 
+    //Clase hija
     class Rectangulo extends Shape {
     /*Para calcular el área de un rectángulo multiplicamos
     el largo por el ancho.*/
