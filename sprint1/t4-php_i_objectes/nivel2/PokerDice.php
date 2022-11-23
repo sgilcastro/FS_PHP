@@ -1,7 +1,6 @@
 <?php
 
     class PokerDice {
-
         //Atributos de clase
         protected $figura;
         protected $dado;
