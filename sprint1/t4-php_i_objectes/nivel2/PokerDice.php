@@ -1,28 +1,27 @@
 <?php
-
     class PokerDice {
         //Atributos de clase
+        protected $cara;
         protected $figura;
-        protected $dado;
-        protected static $i;
+
+        protected static $numLanzamientos = 0;
     //un atributo de contar tiradas en la clase
-
-        //Metodos
-        public function throw() {
-            $this->dado = mt_rand(1, 6);
-            $this->i++;
-            echo "el num aleatorio es: " . $this->dado;
-            echo "<br>";
-            echo $this->i;
-            echo "<br>";
-
+        //getters
+        public function getTotalLanzarDado() {
+            return self::$numLanzamientos;
         }
 
-        public function shapeName() {
-            $this->dado;
+        //Metodos
+         public function lanzarDado() {
+            $this->cara = mt_rand(1, 6);
+            self::$numLanzamientos++;
+            return $this->cara;
+        }
+        public function darNombreFigura() {
+            $this->cara;
             $this->figura = "";
 
-            switch ($this->dado){
+            switch ($this->cara){
 
                 case 1:
                     $this->figura = "As";
@@ -45,48 +44,9 @@
                     break;
             }
             
-            echo "La figura es :" . $this->figura;
-            echo "<br>";
-            
-   
+            return $this->figura;
         }
-
-        public function getTotalThrows() {
-            echo $this->i;
-            echo "<br>";
-        }
-
+ 
     }
-
-    $s1 = new PokerDice();
-    $s1->throw();
-    $s1->shapeName();
-    echo "<br>";
-
-    $s1->throw();
-    $s1->shapeName();
-    echo "<br>";
-
-    $s2 = new PokerDice();
-    $s2->throw();
-    $s2->shapeName();
-    echo "<br>";
-
-    $s3 = new PokerDice();
-    $s3->throw();
-    $s3->shapeName();
-    echo "<br>";
-
-    $s4 = new PokerDice();
-    $s4->throw();
-    $s4->shapeName();
-    echo "<br>";
-
-    $s5 = new PokerDice();
-    $s5->throw();
-    $s5->shapeName();
-    echo "<br>";
-
-    echo $s5->getTotalThrows();
 
 ?>
