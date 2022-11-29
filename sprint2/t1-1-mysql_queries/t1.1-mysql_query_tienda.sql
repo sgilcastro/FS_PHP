@@ -34,11 +34,11 @@ SELECT nombre FROM producto ORDER BY nombre ASC, precio DESC;
 -- 17. Retorna una llista amb 2 files a partir de la quarta fila de la taula "fabricante". La quarta fila també s'ha d'incloure en la resposta.
 SELECT codigo, nombre FROM fabricante WHERE codigo between 4 AND 5;
 -- 18. Llista el nom i el preu del producte més barat. (Utilitza solament les clàusules ORDER BY i LIMIT). NOTA: Aquí no podries usar MIN(preu), necessitaries GROUP BY.
-SELECT nombre, precio FROM producto ORDER BY precio ASC LIMIT 1;
+
 -- 19. Llista el nom i el preu del producte més car. (Fes servir solament les clàusules ORDER BY i LIMIT). NOTA: Aquí no podries usar MAX(preu), necessitaries GROUP BY.
-SELECT nombre, precio FROM producto ORDER BY precio DESC LIMIT 1;
+
 -- 20. Llista el nom de tots els productes del fabricant el codi de fabricant del qual és igual a 2.
-SELECT nombre FROM producto WHERE codigo_fabricante = 2 ORDER BY nombre;
+
 -- 21. Retorna una llista amb el nom del producte, preu i nom de fabricant de tots els productes de la base de dades.
 
 -- 22. Retorna una llista amb el nom del producte, preu i nom de fabricant de tots els productes de la base de dades. Ordena el resultat pel nom del fabricant, per ordre alfabètic.
@@ -80,4 +80,3 @@ SELECT nombre FROM producto WHERE codigo_fabricante = 2 ORDER BY nombre;
 -- 40. Retorna tots els productes de la base de dades que tenen un preu major o igual al producte més car del fabricant Lenovo.
 
 -- 41. Llesta tots els productes del fabricant Asus que tenen un preu superior al preu mitjà de tots els seus productes.
-
