@@ -4,6 +4,7 @@
 		//Atributos de clase
 		protected $ancho;
 		protected $alto;
+		protected $area;
 
 
 		public function __construct($ancho, $alto)
