@@ -16,9 +16,11 @@ SELECT nombre, cuatrimestre FROM asignatura  WHERE cuatrimestre=1 ORDER BY nombr
 -- 1.6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats/des. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom.
 SELECT pe.apellido1, pe.apellido2, pe.nombre, dp.nombre FROM persona pe INNER JOIN profesor pf ON pf.id_profesor = pe.id INNER JOIN departamento dp ON dp.id = pf.id_departamento ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
 -- 1.7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M.
-SELECT asi.nombre, ce.anyo_inicio, ce.anyo_fin
-FROM persona pe INNER JOIN alumno_se_matricula_asignatura am ON am.id_alumno = pe.id INNER JOIN asignatura asi ON asi.id = am.id_asignatura INNER JOIN curso_escolar ce ON ce.id = am.id_curso_escolar WHERE pe.nif = '26902806M';
+SELECT asi.nombre, ce.anyo_inicio, ce.anyo_fin FROM persona pe INNER JOIN alumno_se_matricula_asignatura am ON am.id_alumno = pe.id INNER JOIN asignatura asi ON asi.id = am.id_asignatura INNER JOIN curso_escolar ce ON ce.id = am.id_curso_escolar WHERE pe.nif = '26902806M';
 -- 1.8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015).
+
+
+
 /*SELECT dp.nombre
 FROM asignatura asi INNER JOIN profesor pr ON pr.id_profesor = asi.id_profesor
 INNER JOIN departamento dp ON dp.id = pr.id_departamento 
@@ -45,24 +47,45 @@ SELECT DISTINCT pe.nombre, pe.apellido1, pe.apellido2 FROM persona pe INNER JOIN
 -- El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. 
 -- El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
 
-SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre
-FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id
-ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 2.2. Retorna un llistat amb els professors/es que no estan associats a un departament.
+SELECT pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE dp.nombre IS NULL ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 2.3. Retorna un llistat amb els departaments que no tenen professors/es associats.
+/*SELECT nombre, id
+FROM departamento;
+
+SELECT id_profesor, id_departamento
+FROM profesor;*/
+
+SELECT dp.nombre, pr.id_profesor FROM departamento dp LEFT JOIN profesor pr ON dp.id = pr.id_departamento WHERE pr.id_profesor IS NULL ORDER BY dp.nombre;
 
 -- 2.4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
+/*SELECT id_profesor, id 
+FROM asignatura;
+
+SELECT id_profesor
+FROM profesor;*/
+
+SELECT pe.nombre, pe.apellido1, pe.apellido2 FROM profesor pr left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE asi.nombre IS NULL ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 2.5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
+SELECT asi.nombre FROM asignatura asi LEFT JOIN profesor pr  ON asi.id_profesor = pr.id_profesor WHERE pr.id_profesor IS NULL ORDER BY asi.nombre;
 
 -- 2.6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
+-- Las asignaturas las hacen profesores que pertenencen a dpartamentos.
+-- Si profesor imparte asignatura --> departamento imparte asignatura. 
+-- Solo las asignaturas que han sido imnpartidas por profes, han sido impartidas por los departamentos a los que pertenecen esos profes.
+-- Los departamentos que no tiene profe, no han impartido asignaturas.
+-- asignaturas que id_profesor es null dep del profe es null
 
+SELECT DISTINCT dp.nombre FROM asignatura asi RIGHT JOIN profesor pr ON asi.id_profesor = pr.id_profesor INNER JOIN departamento dp ON pr.id_departamento = dp.id WHERE asi.nombre IS NULL ORDER BY dp.nombre;
 
 -- 3. Consultes resum:
 
 -- 3.1. Retorna el nombre total d'alumnes que hi ha.
+
 
 -- 3.2. Calcula quants/es alumnes van néixer en 1999.
 
