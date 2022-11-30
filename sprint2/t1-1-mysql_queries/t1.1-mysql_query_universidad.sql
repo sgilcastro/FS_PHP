@@ -14,25 +14,40 @@ SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='profesor' AND  tel
 -- 1.5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7.
 SELECT nombre, cuatrimestre FROM asignatura  WHERE cuatrimestre=1 ORDER BY nombre;
 -- 1.6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats/des. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom.
-SELECT pe.apellido1, pe.apellido2, pe.nombre, dp.nombre 
-FROM persona pe INNER JOIN profesor pf ON pf.id_profesor = pe.id 
-	INNER JOIN departamento dp ON dp.id = pf.id_departamento 
-ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
+SELECT pe.apellido1, pe.apellido2, pe.nombre, dp.nombre FROM persona pe INNER JOIN profesor pf ON pf.id_profesor = pe.id INNER JOIN departamento dp ON dp.id = pf.id_departamento ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
 -- 1.7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M.
-SELECT pe.nif, asi.nombre, ce.anyo_inicio, ce.anyo_fin
-FROM persona pe INNER JOIN alumno_se_matricula_asignatura am ON am.id_alumno = pe.id
-INNER JOIN asignatura asi ON asi.id = am.id_asignatura
-INNER JOIN curso_escolar ce ON ce.id = am.id_asignatura 
-
-WHERE pe.nif = '26902806M';
+SELECT asi.nombre, ce.anyo_inicio, ce.anyo_fin
+FROM persona pe INNER JOIN alumno_se_matricula_asignatura am ON am.id_alumno = pe.id INNER JOIN asignatura asi ON asi.id = am.id_asignatura INNER JOIN curso_escolar ce ON ce.id = am.id_curso_escolar WHERE pe.nif = '26902806M';
 -- 1.8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015).
+/*SELECT dp.nombre
+FROM asignatura asi INNER JOIN profesor pr ON pr.id_profesor = asi.id_profesor
+INNER JOIN departamento dp ON dp.id = pr.id_departamento 
+WHERE asi.id_grado = 4;
+
+SELECT dp.nombre
+FROM departamento dp INNER JOIN profesor pr ON pr.id_departamento = dp.id 
+INNER JOIN asignatura asi ON pr.id_profesor = asi.id_profesor
+WHERE asi.id_profesor = 10;*/
+
+/*FROM persona pe INNER JOIN profesor pr ON pr.id_profesor = pe.id
+INNER JOIN departamento dp ON dp.id = pr.id_departamento
+INNER JOIN asignatura asi ON asi.id_profesor = pr.id_profesor
+-- INNER JOIN grado gr ON gr.id = asi.id_grado
+WHERE asi.id_grado = 4;*/
 
 -- 1.9. Retorna un llistat amb tots els/les alumnes que s'han matriculat en alguna assignatura durant el curs escolar 2018/2019.
-
+SELECT DISTINCT pe.nombre, pe.apellido1, pe.apellido2 FROM persona pe INNER JOIN alumno_se_matricula_asignatura am ON am.id_alumno = pe.id WHERE am.id_curso_escolar = 5;
 
 -- 2. Resol les 6 següents consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN.
 
--- 2.1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
+-- 2.1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. 
+-- El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. 
+-- El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. 
+-- El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
+
+SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre
+FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id
+ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 2.2. Retorna un llistat amb els professors/es que no estan associats a un departament.
 
