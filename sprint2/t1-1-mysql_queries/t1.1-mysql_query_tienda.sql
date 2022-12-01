@@ -35,6 +35,7 @@ SELECT nombre FROM producto ORDER BY nombre ASC, precio DESC;
 SELECT codigo, nombre FROM fabricante WHERE codigo between 4 AND 5;
 -- 18. Llista el nom i el preu del producte més barat. (Utilitza solament les clàusules ORDER BY i LIMIT). NOTA: Aquí no podries usar MIN(preu), necessitaries GROUP BY.
 
+
 -- 19. Llista el nom i el preu del producte més car. (Fes servir solament les clàusules ORDER BY i LIMIT). NOTA: Aquí no podries usar MAX(preu), necessitaries GROUP BY.
 
 -- 20. Llista el nom de tots els productes del fabricant el codi de fabricant del qual és igual a 2.
