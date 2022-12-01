@@ -7,8 +7,8 @@ SELECT nombre, apellido1, apellido2, fecha_nacimiento FROM persona WHERE tipo='a
 SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND telefono IS NULL) ORDER BY apellido1, apellido2, nombre;
 -- 1.3. Retorna el llistat dels/les alumnes que van néixer en 1999.
 SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND fecha_nacimiento between '1999-01-01' AND '1999-12-31') ORDER BY apellido1, apellido2, nombre;
--- (para probar si incluye la fecha que se pone) 
-SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND fecha_nacimiento between '1999-02-11' AND '1999-05-24') ORDER BY apellido1, apellido2, nombre;
+/* (para probar si incluye la fecha que se pone) 
+SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND fecha_nacimiento between '1999-02-11' AND '1999-05-24') ORDER BY apellido1, apellido2, nombre; */
 -- 1.4. Retorna el llistat de professors/es que no han donat d'alta el seu número de telèfon en la base de dades i a més el seu NIF acaba en K.
 SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='profesor' AND  telefono IS NULL AND SUBSTRING(nif,9,1)='K') ORDER BY apellido1, apellido2, nombre;
 -- 1.5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7.
@@ -68,8 +68,12 @@ SELECT gr.nombre, COUNT(asi.nombre) FROM grado gr LEFT JOIN asignatura asi ON gr
 
 -- 3.8. Retorna un llistat que mostri quants/es alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats/des.
 
--- 3.9. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures.
+-- 3.9. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. 
+-- El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. 
+-- El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures.
+
 
 -- 3.10. Retorna totes les dades de l'alumne més jove.
+SELECT id, nif, nombre, apellido1, apellido2, ciudad, direccion, telefono, fecha_nacimiento, sexo, tipo FROM persona WHERE fecha_nacimiento = (SELECT MIN(fecha_nacimiento) FROM persona WHERE tipo = 'Alumno'); 
 
 -- 3.11. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura.
