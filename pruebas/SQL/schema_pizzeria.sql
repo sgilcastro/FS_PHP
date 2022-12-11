@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS pizzeria;
 CREATE DATABASE pizzeria CHARACTER SET utf8mb4;
 USE pizzeria;
-
+-- mirar esto https://learn.microsoft.com/es-es/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver16
 CREATE TABLE pedido (
     id VARCHAR(20) DEFAULT REPLACE('mi casa',' ',''),
     -- REPLACE(replace(replace(NOW(),'-',''),' ','-'),':','')
