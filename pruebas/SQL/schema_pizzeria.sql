@@ -1,7 +1,6 @@
 DROP DATABASE IF EXISTS pizzeria;
 CREATE DATABASE pizzeria CHARACTER SET utf8mb4;
 USE pizzeria;
--- mirar esto https://learn.microsoft.com/es-es/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver16
 
 CREATE TABLE cliente (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -14,13 +13,11 @@ CREATE TABLE cliente (
     telefono VARCHAR(9)
 );
 
+-- mirar esto https://learn.microsoft.com/es-es/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver16
+
 CREATE TABLE pedido (
-    -- id VARCHAR(20) DEFAULT CONVERT(VARCHAR(24),dt,112),
-    -- REPLACE(replace(replace(NOW(),'-',''),' ','-'),':','')
-    -- 1968-10-23 12:45:37.1237 
-    -- REPLACE(input_string, substring, new_substring);
-    -- REPLACE(REPLACE(phone, '(', ''), ')', '') 
-    id TIMESTAMP DEFAULT NOW() PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    fecha_hora DATETIME DEFAULT NOW() NOT NULL
     id_cliente INT UNSIGNED NOT NULL UNIQUE,
     tipo ENUM('local', 'domicilio') NOT NULL,
     FOREIGN KEY(id_cliente) REFERENCES cliente(id)
@@ -30,6 +27,6 @@ CREATE TABLE pedido (
 INSERT INTO cliente VALUES (1, 'Sergio', 'Michi', 'c/flor, 50, 1º 2ª', '08016','Barcelona', 'Barcelona', '655555555');
 
 /* Pedido */
-INSERT INTO pedido VALUES (NOW(), 1, 'local');
+INSERT INTO pedido VALUES (1, '2022/05/01 01:00', 1, 'local');
 
 
