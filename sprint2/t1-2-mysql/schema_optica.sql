@@ -36,8 +36,6 @@ CREATE TABLE gafa (
     FOREIGN KEY(id_marca) REFERENCES marca(id)
 );
 
-
-
 CREATE TABLE politica_de_compra (
 	id_marca INT UNSIGNED NOT NULL UNIQUE,
     id_proveedor INT UNSIGNED NOT NULL,
@@ -68,11 +66,18 @@ CREATE TABLE empleado (
     nombre VARCHAR(40) NOT NULL
 );
 
+CREATE TABLE tiempo_de_venta (
+    id_gafa INT UNSIGNED PRIMARY KEY,
+    fecha_venta_max DATE NOT NULL,
+    FOREIGN KEY(id_gafa) REFERENCES gafa(id)
+);
+
 CREATE TABLE venta_de_gafa (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     id_gafa INT UNSIGNED NOT NULL,
 	id_cliente INT UNSIGNED NOT NULL,
     id_empleado INT UNSIGNED NOT NULL,
+    fecha_venta DATE DEFAULT NOW() NOT NULL,
     FOREIGN KEY(id_gafa) REFERENCES gafa(id),
     FOREIGN KEY(id_cliente) REFERENCES cliente(id),
     FOREIGN KEY(id_empleado) REFERENCES empleado(id)
@@ -100,5 +105,8 @@ INSERT INTO cliente_recomienda_otro_cliente VALUES (1, 2);
 /* Empleado */
 INSERT INTO empleado VALUES (1, 'Maria García');
 
+/* Tiempo de venta */
+INSERT INTO tiempo_de_venta VALUES (1, '2022/12/31');
+
 /* Venta de gafa */
-INSERT INTO venta_de_gafa VALUES (1, 1, 2, 1);
+INSERT INTO venta_de_gafa VALUES (1, 1, 2, 1, '2022/11/20');
