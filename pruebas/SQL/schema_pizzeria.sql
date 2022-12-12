@@ -108,6 +108,28 @@ INSERT INTO pedido (fecha_hora, id_cliente, tipo) VALUES ('2022-12-12 12:30:00',
 INSERT INTO pedido (fecha_hora, id_cliente, tipo) VALUES ('2022-12-12 13:00:00', 3, 'local');
 INSERT INTO pedido (fecha_hora, id_cliente, tipo) VALUES ('2022-12-12 13:30:00', 4, 'domicilio');
 
+/* Producto */
+CREATE TABLE producto (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL,
+    descripcion VARCHAR(225) NOT NULL,
+    img VARCHAR(225) DEFAULT 'imagen_no_disponible.jpg' NOT NULL,
+    precio FLOAT(6,2) NOT NULL,
+    tipo ENUM('pizza', 'hamburguesa', 'bebida') NOT NULL
+);
+INSERT INTO producto VALUES (1, 'Pizza margarita', 'Pizza con queso y tomate', '000001.jpg', '9', 'pizza');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Hamburguesa clásica', 'Hamburguesa con carne, queso, lechuga, tomate y cebolla', 'hamburguesa_clasica.jpg', 8.50, 'hamburguesa');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Coca-Cola', 'Bebida gaseosa de cola', 'cocacola.jpg', 2.00, 'bebida');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Pizza pepperoni', 'Pizza con pepperoni y queso', 'pizza_pepperoni.jpg', 11.50, 'pizza');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Hamburguesa de pollo', 'Hamburguesa con carne de pollo, queso, lechuga, tomate y cebolla', 'hamburguesa_pollo.jpg', 9.00, 'hamburguesa');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Agua mineral', 'Bebida sin gas', 'agua_mineral.jpg', 1.50, 'bebida');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Pizza de champiñones', 'Pizza con champiñones y queso', 'pizza_champinones.jpg', 12.00, 'pizza');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Pepsi', 'Bebida gaseosa de cola', 'pepsi.jpg', 2.00, 'bebida');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Pizza de pepperoni y champiñones', 'Pizza con pepperoni, champiñones y queso', 'pizza_pepperoni_champinones.jpg', 14.00, 'pizza');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Hamburguesa vegetariana', 'Hamburguesa con verduras y queso', 'hamburguesa_vegetariana.jpg', 7.50, 'hamburguesa');
+INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Agua con gas', 'Bebida con gas', 'agua_con_gas.jpg', 1.75, 'bebida');
+
+
 /* Detalle pedido */
 
 INSERT INTO detalle_pedido VALUES (1, 5);
@@ -144,15 +166,10 @@ INSERT INTO detalle_pedido (id_pedido, id_producto) VALUES (5, 2);
 INSERT INTO detalle_pedido (id_pedido, id_producto) VALUES (5, 5);
 INSERT INTO detalle_pedido (id_pedido, id_producto) VALUES (5, 7);
 
-
-CREATE TABLE producto (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(25) NOT NULL,
-    descripcion VARCHAR(225) NOT NULL,
-    img VARCHAR(225) DEFAULT 'imagen_no_disponible.jpg' NOT NULL,
-    precio FLOAT(6,2) NOT NULL,
-    tipo ENUM('pizza', 'hamburguesa', 'bebida') NOT NULL
-);
+/* Categoria */
+INSERT INTO categoria VALUES (1,'Pizzas especiales');
+INSERT INTO categoria (nombre) VALUES ('Pizzas clásicas');
+INSERT INTO categoria (nombre) VALUES ('Pizzas vegetarianas');
 
 CREATE TABLE categoria (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
