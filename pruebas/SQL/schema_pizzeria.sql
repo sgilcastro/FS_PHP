@@ -171,11 +171,6 @@ INSERT INTO categoria VALUES (1,'Pizzas especiales');
 INSERT INTO categoria (nombre) VALUES ('Pizzas clásicas');
 INSERT INTO categoria (nombre) VALUES ('Pizzas vegetarianas');
 
-CREATE TABLE categoria (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(25) NOT NULL
-);
-
 CREATE TABLE categoria_producto_pizza (
     id_pizza INT UNSIGNED PRIMARY KEY,
     id_categoria INT UNSIGNED NOT NULL,
