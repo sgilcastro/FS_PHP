@@ -174,17 +174,41 @@ INSERT INTO empleado (id, nombre, apellidos, NIF, Telefono, puesto, id_tienda) V
 /* Pedido a domicilio*/ 
 INSERT INTO pedido_a_domicilio (id_pedido, id_empleado, fecha_hora_entrega) VALUES (1, 3, '2022-12-12 13:10:00');
 
-/* Cuenta del pedido 1 */
+-- CONSULTAS
+
+SELECT gr.nombre, COUNT(asi.nombre) 'Num. Asignaturas' 
+FROM grado gr LEFT JOIN asignatura asi ON gr.id = asi.id_grado 
+GROUP BY gr.id 
+ORDER BY COUNT(asi.nombre) DESC;
+
+SELECT dp.nombre, COUNT(*) 'num profesores' 
+FROM departamento dp 
+INNER JOIN profesor pr ON dp.id = pr.id_departamento 
+GROUP BY pr.id_departamento 
+ORDER BY COUNT(*);
 
 
+-- Cuenta del pedido 1 
+SELECT pr.nombre 'Producto', dp.unidades_producto 'u.', pr.precio '€/u.', (dp.unidades_producto * pr.precio) '€ total'
+FROM  producto pr INNER JOIN detalle_pedido dp ON pr.id = dp.id_producto
+WHERE dp.id_pedido = 1
+ORDER BY pr.nombre;
 
+-- Llista quants productes de tipus “Begudes” s'han venut en una determinada localitat.
+SELECT pr.nombre, count(pr.nombre)
+FROM  producto pr INNER JOIN detalle_pedido dp ON pr.id = dp.id_producto
+INNER JOIN pedido pd ON dp.id_pedido = pd.id
+INNER JOIN tienda td ON pd.id_tienda = td.id
+WHERE (pr.tipo = 'bebida' AND td.provincia = 'Barcelona')
+GROUP BY pr.nombre
+ORDER BY pr.nombre;
 
+-- Llista quantes comandes ha efectuat un determinat empleat/da.
+SELECT COUNT(pd.id) 'Total pedidos x realizados por empleado 3'
+FROM pedido pd INNER JOIN pedido_a_domicilio pad ON pd.id = pad.id_pedido
+INNER JOIN empleado em ON pad.id_empleado = em.id
+WHERE em.id = 3;
 
-/*
-Pizzeria:
-Llista quants productes de tipus “Begudes” s'han venut en una determinada localitat.
-Llista quantes comandes ha efectuat un determinat empleat/da.
-* /
 
 
 
