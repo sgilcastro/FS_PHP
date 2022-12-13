@@ -107,7 +107,6 @@ INSERT INTO pedido (fecha_hora, id_cliente, tipo, id_tienda) VALUES ('2022-12-12
 INSERT INTO pedido (fecha_hora, id_cliente, tipo, id_tienda) VALUES ('2022-12-12 13:30:00', 4, 'domicilio', 1);
 
 /* Producto */
-
 INSERT INTO producto VALUES (1, 'Pizza margarita', 'Pizza con queso y tomate', '000001.jpg', '9', 'pizza');
 INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Hamburguesa clásica', 'Hamburguesa con carne, queso, lechuga, tomate y cebolla', 'hamburguesa_clasica.jpg', 8.50, 'hamburguesa');
 INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Coca-Cola', 'Bebida gaseosa de cola', 'cocacola.jpg', 2.00, 'bebida');
@@ -122,7 +121,6 @@ INSERT INTO producto (nombre, descripcion, img, precio, tipo) VALUES ('Agua con 
 
 
 /* Detalle pedido */
-
 INSERT INTO detalle_pedido VALUES (1, 5, 2);
 INSERT INTO detalle_pedido (id_pedido, id_producto) VALUES (1, 6);
 INSERT INTO detalle_pedido (id_pedido, id_producto) VALUES (1, 7);
@@ -163,7 +161,6 @@ INSERT INTO categoria_producto_pizza VALUES (1, 4);
 INSERT INTO categoria_producto_pizza VALUES (2, 5);
 INSERT INTO categoria_producto_pizza VALUES (2, 6);
 
-
 /* Empleado */
 INSERT INTO empleado (id, nombre, apellidos, NIF, Telefono, puesto, id_tienda) VALUES (1, 'Antonia', 'Marín Set', '38166597K', '968698745', 'repartidor', 1);
 INSERT INTO empleado (id, nombre, apellidos, NIF, Telefono, puesto, id_tienda) VALUES (2, 'Jose', 'Rodriguez del Haro', '98566234H', '656982564', 'cocinero', 1);
@@ -187,7 +184,6 @@ INNER JOIN profesor pr ON dp.id = pr.id_departamento
 GROUP BY pr.id_departamento 
 ORDER BY COUNT(*);
 
-
 -- Cuenta del pedido 1 
 SELECT pr.nombre 'Producto', dp.unidades_producto 'u.', pr.precio '€/u.', (dp.unidades_producto * pr.precio) '€ total'
 FROM  producto pr INNER JOIN detalle_pedido dp ON pr.id = dp.id_producto
@@ -208,8 +204,3 @@ SELECT COUNT(pd.id) 'Total pedidos x realizados por empleado 3'
 FROM pedido pd INNER JOIN pedido_a_domicilio pad ON pd.id = pad.id_pedido
 INNER JOIN empleado em ON pad.id_empleado = em.id
 WHERE em.id = 3;
-
-
-
-
-
