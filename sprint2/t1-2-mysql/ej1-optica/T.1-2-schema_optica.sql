@@ -143,6 +143,4 @@ INNER JOIN tiempo_de_venta tdv ON ga.id = tdv.id_gafa
 WHERE vdg.fecha_venta < tdv.fecha_venta_max;
 
 
-
-
  
