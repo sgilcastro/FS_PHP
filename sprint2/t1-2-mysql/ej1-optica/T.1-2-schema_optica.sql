@@ -91,6 +91,9 @@ INSERT INTO marca VALUES ('1','Unno');
 
 /* Gafa */
 INSERT INTO gafa VALUES ('1','1', 'Portaite', 9.75, 0.25, 'pasta','Negro', NULL, NULL, 98.99);
+INSERT INTO gafa (id_marca, nombre, graduacion_od, graduacion_oi, tipo, color_montura, color_cristal_od, color_cristal_oi, precio) VALUES (1, 'Gafas de sol Ray-Ban', 2.75, 2.75, 'pasta', 'negro', 'azul', 'azul', 125.00);
+INSERT INTO gafa (id_marca, nombre, graduacion_od, graduacion_oi, tipo, color_montura, color_cristal_od, color_cristal_oi, precio) VALUES (2, 'Gafas de sol Oakley', 3.00, 3.00, 'flotante', 'verde', 'verde', 'verde', 150.00);
+INSERT INTO gafa (id_marca, nombre, graduacion_od, graduacion_oi, tipo, color_montura, color_cristal_od, color_cristal_oi, precio) VALUES (3, 'Gafas de sol Gucci', 2.50, 2.50, 'metálica', 'dorado', 'transparente', 'transparente', 200.00);
 
 /* Política de compra */
 INSERT INTO politica_de_compra VALUES ('1','1');
@@ -110,6 +113,7 @@ INSERT INTO tiempo_de_venta VALUES (1, '2022/12/31');
 
 /* Venta de gafa */
 INSERT INTO venta_de_gafa VALUES (1, 1, 2, 1, '2022/11/20');
+INSERT INTO venta_de_gafa VALUES (2, 3, 3, 1, '2022/11/20');
 
 
 /* Òptica:
@@ -117,3 +121,13 @@ Llista el total de compres d’un client/a.
 Llista les diferents ulleres que ha venut un empleat durant un any.
 Llista els diferents proveïdors que han subministrat ulleres venudes amb èxit per l'òptica.
 */
+
+SELECT COUNT(vg.id) 'Compras realizadas por cliente 2'
+FROM venta_de_gafa vg INNER JOIN cliente cl ON vg.id_cliente = cl.id
+WHERE cl.id = 2;
+
+SELECT ga.nombre
+FROM gafa ga INNER JOIN venta_de_gafa vdg ON ga.id = vdg.id_gafa
+INNER JOIN empleado em ON vdg.id_empleado = em.id
+WHERE em.id = 1;
+ 
