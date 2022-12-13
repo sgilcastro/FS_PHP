@@ -37,7 +37,7 @@ CREATE TABLE gafa (
 );
 
 CREATE TABLE politica_de_compra (
-	id_marca INT UNSIGNED NOT NULL UNIQUE,
+	id_marca INT UNSIGNED NOT NULL,
     id_proveedor INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_marca, id_proveedor),
     FOREIGN KEY(id_marca) REFERENCES marca(id),
@@ -87,10 +87,11 @@ CREATE TABLE venta_de_gafa (
 INSERT INTO proveedor VALUES (1, 'Slatic', 'c/Pepe', '60A', NULL, NULL, 'Barcelona', '08016', 'España','934836765', NULL, 'G38155745');
 
 /* Marca */
-INSERT INTO marca VALUES ('1','Unno');
-
+INSERT INTO marca VALUES (1,'Ray-Ban');
+INSERT INTO marca VALUES (2,'Oakley');
+INSERT INTO marca VALUES (3,'Gucci');
 /* Gafa */
-INSERT INTO gafa VALUES ('1','1', 'Portaite', 9.75, 0.25, 'pasta','Negro', NULL, NULL, 98.99);
+INSERT INTO gafa VALUES (1, 1, 'Portaite', 9.75, 0.25, 'pasta','Negro', NULL, NULL, 98.99);
 INSERT INTO gafa (id_marca, nombre, graduacion_od, graduacion_oi, tipo, color_montura, color_cristal_od, color_cristal_oi, precio) VALUES (1, 'Gafas de sol Ray-Ban', 2.75, 2.75, 'pasta', 'negro', 'azul', 'azul', 125.00);
 INSERT INTO gafa (id_marca, nombre, graduacion_od, graduacion_oi, tipo, color_montura, color_cristal_od, color_cristal_oi, precio) VALUES (2, 'Gafas de sol Oakley', 3.00, 3.00, 'flotante', 'verde', 'verde', 'verde', 150.00);
 INSERT INTO gafa (id_marca, nombre, graduacion_od, graduacion_oi, tipo, color_montura, color_cristal_od, color_cristal_oi, precio) VALUES (3, 'Gafas de sol Gucci', 2.50, 2.50, 'metálica', 'dorado', 'transparente', 'transparente', 200.00);
@@ -107,27 +108,41 @@ INSERT INTO cliente_recomienda_otro_cliente VALUES (1, 2);
 
 /* Empleado */
 INSERT INTO empleado VALUES (1, 'Maria García');
+INSERT INTO empleado VALUES (2, 'Pepe Robles');
 
 /* Tiempo de venta */
 INSERT INTO tiempo_de_venta VALUES (1, '2022/12/31');
+INSERT INTO tiempo_de_venta VALUES (2, '2022/06/15');
 
 /* Venta de gafa */
-INSERT INTO venta_de_gafa VALUES (1, 1, 2, 1, '2022/11/20');
-INSERT INTO venta_de_gafa VALUES (2, 3, 3, 1, '2022/11/20');
+INSERT INTO venta_de_gafa (id, id_gafa, id_cliente, id_empleado, fecha_venta) VALUES (1, 1, 2, 1, '2022/11/20');
+INSERT INTO venta_de_gafa (id_gafa, id_cliente, id_empleado, fecha_venta)  VALUES (2, 2, 1, '2022/06/10');
+INSERT INTO venta_de_gafa (id_gafa, id_cliente, id_empleado, fecha_venta)  VALUES (4, 1, 1, '2022/11/20');
+INSERT INTO venta_de_gafa (id_gafa, id_cliente, id_empleado, fecha_venta)  VALUES (2, 1, 2, '2022/11/20');
 
-
-/* Òptica:
-Llista el total de compres d’un client/a.
-Llista les diferents ulleres que ha venut un empleat durant un any.
-Llista els diferents proveïdors que han subministrat ulleres venudes amb èxit per l'òptica.
-*/
-
+-- Llista el total de compres d’un client/a.
 SELECT COUNT(vg.id) 'Compras realizadas por cliente 2'
+FROM venta_de_gafa vg INNER JOIN cliente cl ON vg.id_cliente = cl.id
+WHERE cl.id = 2;SELECT COUNT(vg.id) 'Compras realizadas por cliente 2'
 FROM venta_de_gafa vg INNER JOIN cliente cl ON vg.id_cliente = cl.id
 WHERE cl.id = 2;
 
+-- Llista les diferents ulleres que ha venut un empleat durant un any.
 SELECT ga.nombre
 FROM gafa ga INNER JOIN venta_de_gafa vdg ON ga.id = vdg.id_gafa
 INNER JOIN empleado em ON vdg.id_empleado = em.id
-WHERE em.id = 1;
+WHERE em.id = 1 AND (vdg.fecha_venta BETWEEN '2022/01/01' AND '2022/12/31');
+
+-- Llista els diferents proveïdors que han subministrat ulleres venudes amb èxit per l'òptica.
+SELECT pr.nombre 'Proveedor', ga.nombre 'Gafa', vdg.fecha_venta, tdv.fecha_venta_max
+FROM proveedor pr INNER JOIN politica_de_compra pdc ON pr.id = pdc.id_proveedor
+INNER JOIN marca ma ON pdc.id_marca = ma.id
+INNER JOIN gafa ga ON ma.id = ga.id_marca
+INNER JOIN venta_de_gafa vdg ON ga.id = vdg.id_gafa
+INNER JOIN tiempo_de_venta tdv ON ga.id = tdv.id_gafa
+WHERE vdg.fecha_venta < tdv.fecha_venta_max;
+
+
+
+
  
