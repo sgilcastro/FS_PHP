@@ -141,6 +141,3 @@ INNER JOIN gafa ga ON ma.id = ga.id_marca
 INNER JOIN venta_de_gafa vdg ON ga.id = vdg.id_gafa
 INNER JOIN tiempo_de_venta tdv ON ga.id = tdv.id_gafa
 WHERE vdg.fecha_venta < tdv.fecha_venta_max;
-
-
- 
