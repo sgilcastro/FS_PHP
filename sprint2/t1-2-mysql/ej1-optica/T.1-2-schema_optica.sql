@@ -110,3 +110,10 @@ INSERT INTO tiempo_de_venta VALUES (1, '2022/12/31');
 
 /* Venta de gafa */
 INSERT INTO venta_de_gafa VALUES (1, 1, 2, 1, '2022/11/20');
+
+
+/* Òptica:
+Llista el total de compres d’un client/a.
+Llista les diferents ulleres que ha venut un empleat durant un any.
+Llista els diferents proveïdors que han subministrat ulleres venudes amb èxit per l'òptica.
+*/

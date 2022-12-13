@@ -83,6 +83,21 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
+-- Table `pizzeria`.`tienda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pizzeria`.`tienda` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `direccion` VARCHAR(50) NOT NULL,
+  `codigo_postal` VARCHAR(5) NOT NULL,
+  `localidad` VARCHAR(25) NOT NULL,
+  `provincia` VARCHAR(25) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
 -- Table `pizzeria`.`pedido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzeria`.`pedido` (
@@ -90,11 +105,16 @@ CREATE TABLE IF NOT EXISTS `pizzeria`.`pedido` (
   `fecha_hora` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   `id_cliente` INT(10) UNSIGNED NOT NULL,
   `tipo` ENUM('local', 'domicilio') NOT NULL,
+  `id_tienda` INT(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `id_cliente` (`id_cliente` ASC) VISIBLE,
+  INDEX `id_tienda` (`id_tienda` ASC) VISIBLE,
   CONSTRAINT `pedido_ibfk_1`
     FOREIGN KEY (`id_cliente`)
-    REFERENCES `pizzeria`.`cliente` (`id`))
+    REFERENCES `pizzeria`.`cliente` (`id`),
+  CONSTRAINT `pedido_ibfk_2`
+    FOREIGN KEY (`id_tienda`)
+    REFERENCES `pizzeria`.`tienda` (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4;
@@ -116,21 +136,6 @@ CREATE TABLE IF NOT EXISTS `pizzeria`.`detalle_pedido` (
     FOREIGN KEY (`id_producto`)
     REFERENCES `pizzeria`.`producto` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `pizzeria`.`tienda`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pizzeria`.`tienda` (
-  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `direccion` VARCHAR(50) NOT NULL,
-  `codigo_postal` VARCHAR(5) NOT NULL,
-  `localidad` VARCHAR(25) NOT NULL,
-  `provincia` VARCHAR(25) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4;
 
 

@@ -180,6 +180,11 @@ INSERT INTO pedido_a_domicilio (id_pedido, id_empleado, fecha_hora_entrega) VALU
 
 
 
+/*
+Pizzeria:
+Llista quants productes de tipus “Begudes” s'han venut en una determinada localitat.
+Llista quantes comandes ha efectuat un determinat empleat/da.
+* /
 
 
 
