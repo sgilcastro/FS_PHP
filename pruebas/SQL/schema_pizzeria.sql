@@ -80,6 +80,10 @@ CREATE TABLE pedido_a_domicilio (
     FOREIGN KEY(id_empleado) REFERENCES empleado(id)
 );
 
+/* Tienda */
+INSERT INTO tienda (id, direccion, codigo_postal, localidad, provincia) VALUES (1, 'Plaza Cataluña 4', '08002', 'Barcelona', 'Barcelona');
+INSERT INTO tienda (direccion, codigo_postal, localidad, provincia) VALUES ('Plaza españa 2', '08045', 'Montcada', 'Barcelona');      
+
 /* Cliente */
 INSERT INTO cliente VALUES (1, 'Sergio', 'Michi', 'c/flor, 50, 1º 2ª', '08016','Barcelona', 'Barcelona', '655555555');
 INSERT INTO cliente (nombre, apellidos, direccion, codigo_postal, localidad, provincia, telefono) VALUES ('Jose', 'García', 'Calle Falsa 123', '28012', 'Madrid', 'Madrid', '987454321');
@@ -160,12 +164,7 @@ INSERT INTO categoria_producto_pizza VALUES (2, 5);
 INSERT INTO categoria_producto_pizza VALUES (2, 6);
 
 
-/* Tienda */
-INSERT INTO tienda (id, direccion, codigo_postal, localidad, provincia) VALUES (1, 'Plaza Cataluña 4', '08002', 'Barcelona', 'Barcelona');
-INSERT INTO tienda (direccion, codigo_postal, localidad, provincia) VALUES ('Plaza españa 2', '08045', 'Montcada', 'Barcelona');                                                                              
-
 /* Empleado */
-
 INSERT INTO empleado (id, nombre, apellidos, NIF, Telefono, puesto, id_tienda) VALUES (1, 'Antonia', 'Marín Set', '38166597K', '968698745', 'repartidor', 1);
 INSERT INTO empleado (id, nombre, apellidos, NIF, Telefono, puesto, id_tienda) VALUES (2, 'Jose', 'Rodriguez del Haro', '98566234H', '656982564', 'cocinero', 1);
 INSERT INTO empleado (id, nombre, apellidos, NIF, Telefono, puesto, id_tienda) VALUES (3, 'Pepe', 'García Peréz', '25633458N', '968698745', 'cocinero', 2);
