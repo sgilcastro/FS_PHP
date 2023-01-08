@@ -23,21 +23,31 @@ SELECT DISTINCT dp.nombre 'Nombre Departamento' FROM departamento dp INNER JOIN 
 SELECT DISTINCT pe.nombre, pe.apellido1, pe.apellido2 FROM persona pe INNER JOIN alumno_se_matricula_asignatura am ON am.id_alumno = pe.id WHERE am.id_curso_escolar = 5;
 
 -- 2. Resol les 6 següents consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN.
+
 -- 2.1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. 
 -- El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. 
 -- El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. 
 -- El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
--- ERRONEA -- SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre, pr.id_departamento FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
- SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM persona pe LEFT JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN departamento dp ON pr.id_departamento = dp.id WHERE pe.tipo = 'profesor' ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+-- ¡ERRONEA! -- SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre, pr.id_departamento FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM persona pe LEFT JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN departamento dp ON pr.id_departamento = dp.id WHERE pe.tipo = 'profesor' ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 2.2. Retorna un llistat amb els professors/es que no estan associats a un departament.
-SELECT pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE dp.nombre IS NULL ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+-- ¡ERRONEA! pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE dp.nombre IS NULL ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM persona pe LEFT JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN departamento dp ON pr.id_departamento = dp.id WHERE (pe.tipo = 'profesor' AND  dp.nombre IS NULL)  ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+
 -- 2.3. Retorna un llistat amb els departaments que no tenen professors/es associats.
 SELECT dp.nombre, pr.id_profesor FROM departamento dp LEFT JOIN profesor pr ON dp.id = pr.id_departamento WHERE pr.id_profesor IS NULL ORDER BY dp.nombre;
+
 -- 2.4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
-SELECT pe.nombre, pe.apellido1, pe.apellido2 FROM profesor pr left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE asi.nombre IS NULL ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
+-- ¡ERRONEA! SELECT pe.nombre, pe.apellido1, pe.apellido2 FROM profesor pr left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE asi.nombre IS NULL ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
+SELECT pe.nombre, pe.apellido1, pe.apellido2, asi.id 
+FROM persona pe left JOIN asignatura asi ON pe.id = asi.id_profesor 
+WHERE (pe.tipo = 'profesor' AND asi.nombre IS NULL)
+ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
+
 -- 2.5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
 SELECT asi.nombre FROM asignatura asi LEFT JOIN profesor pr  ON asi.id_profesor = pr.id_profesor WHERE pr.id_profesor IS NULL ORDER BY asi.nombre;
+
 -- 2.6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
 -- Las asignaturas las hacen profesores que pertenencen a dpartamentos.
 -- Si profesor imparte asignatura --> departamento imparte asignatura. 
