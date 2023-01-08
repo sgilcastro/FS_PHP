@@ -27,7 +27,9 @@ SELECT DISTINCT pe.nombre, pe.apellido1, pe.apellido2 FROM persona pe INNER JOIN
 -- El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. 
 -- El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. 
 -- El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
-SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+-- ERRONEA -- SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre, pr.id_departamento FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+ SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM persona pe LEFT JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN departamento dp ON pr.id_departamento = dp.id WHERE pe.tipo = 'profesor' ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
+
 -- 2.2. Retorna un llistat amb els professors/es que no estan associats a un departament.
 SELECT pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE dp.nombre IS NULL ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 -- 2.3. Retorna un llistat amb els departaments que no tenen professors/es associats.
