@@ -30,23 +30,17 @@ SELECT DISTINCT pe.nombre, pe.apellido1, pe.apellido2 FROM persona pe INNER JOIN
 -- El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
 -- ¡ERRONEA! -- SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre, pr.id_departamento FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM persona pe LEFT JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN departamento dp ON pr.id_departamento = dp.id WHERE pe.tipo = 'profesor' ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
-
 -- 2.2. Retorna un llistat amb els professors/es que no estan associats a un departament.
 -- ¡ERRONEA! pe.apellido1, pe.apellido2, pe.nombre FROM profesor pr LEFT JOIN departamento dp ON pr.id_profesor = dp.id INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE dp.nombre IS NULL ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
 SELECT dp.nombre, pe.apellido1, pe.apellido2, pe.nombre FROM persona pe LEFT JOIN profesor pr ON pe.id = pr.id_profesor LEFT JOIN departamento dp ON pr.id_departamento = dp.id WHERE (pe.tipo = 'profesor' AND  dp.nombre IS NULL)  ORDER BY dp.nombre, pe.apellido1, pe.apellido2, pe.nombre;
-
 -- 2.3. Retorna un llistat amb els departaments que no tenen professors/es associats.
 SELECT dp.nombre, pr.id_profesor FROM departamento dp LEFT JOIN profesor pr ON dp.id = pr.id_departamento WHERE pr.id_profesor IS NULL ORDER BY dp.nombre;
-
 -- 2.4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
 -- ¡ERRONEA! SELECT pe.nombre, pe.apellido1, pe.apellido2 FROM profesor pr left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE asi.nombre IS NULL ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
 SELECT pe.nombre, pe.apellido1, pe.apellido2, asi.id FROM persona pe left JOIN asignatura asi ON pe.id = asi.id_profesor WHERE (pe.tipo = 'profesor' AND asi.nombre IS NULL) ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
-
 -- 2.5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
 SELECT asi.nombre FROM asignatura asi LEFT JOIN profesor pr  ON asi.id_profesor = pr.id_profesor WHERE pr.id_profesor IS NULL ORDER BY asi.nombre;
-
 -- 2.6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
-
 -- ¡ERRONEA! SELECT DISTINCT dp.nombre, asi FROM asignatura asi RIGHT JOIN profesor pr ON asi.id_profesor = pr.id_profesor INNER JOIN departamento dp ON pr.id_departamento = dp.id WHERE asi.nombre IS NULL ORDER BY dp.nombre;
 SELECT DISTINCT dp.nombre FROM departamento dp left JOIN profesor pr ON dp.id = pr.id_departamento left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor WHERE asi.nombre IS NULL ORDER BY dp.nombre;
 			-- se visualiza lo que se recoge poniendo delante en el SELECT: asi.nombre, pr.id_profesor, pr.id_departamento
@@ -55,7 +49,8 @@ SELECT DISTINCT dp.nombre FROM departamento dp left JOIN profesor pr ON dp.id = 
 -- 3.1. Retorna el nombre total d'alumnes que hi ha.
 SELECT COUNT(id) 'Total alumnos' FROM persona WHERE tipo = 'alumno';
 -- 3.2. Calcula quants/es alumnes van néixer en 1999.
-SELECT COUNT(id) 'Total alumnos' FROM persona WHERE tipo = 'alumno';
+-- ¡ERRONEA! SELECT COUNT(id) 'Total alumnos' FROM persona WHERE tipo = 'alumno';
+SELECT COUNT(id) 'Total alumnos' FROM persona WHERE  (tipo='alumno' AND fecha_nacimiento between '1999-01-01' AND '1999-12-31') ;
 -- 3.3. Calcula quants/es professors/es hi ha en cada departament. 
 -- El resultat només ha de mostrar dues columnes, una amb el nom del departament i una altra amb el nombre de professors/es que hi ha en aquest departament. 
 -- El resultat només ha d'incloure els departaments que tenen professors/es associats i haurà d'estar ordenat de major a menor pel nombre de professors/es.
