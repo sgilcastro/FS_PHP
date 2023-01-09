@@ -40,21 +40,16 @@ SELECT dp.nombre, pr.id_profesor FROM departamento dp LEFT JOIN profesor pr ON d
 
 -- 2.4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
 -- ¡ERRONEA! SELECT pe.nombre, pe.apellido1, pe.apellido2 FROM profesor pr left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor INNER JOIN persona pe ON pr.id_profesor = pe.id WHERE asi.nombre IS NULL ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
-SELECT pe.nombre, pe.apellido1, pe.apellido2, asi.id 
-FROM persona pe left JOIN asignatura asi ON pe.id = asi.id_profesor 
-WHERE (pe.tipo = 'profesor' AND asi.nombre IS NULL)
-ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
+SELECT pe.nombre, pe.apellido1, pe.apellido2, asi.id FROM persona pe left JOIN asignatura asi ON pe.id = asi.id_profesor WHERE (pe.tipo = 'profesor' AND asi.nombre IS NULL) ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 2.5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
 SELECT asi.nombre FROM asignatura asi LEFT JOIN profesor pr  ON asi.id_profesor = pr.id_profesor WHERE pr.id_profesor IS NULL ORDER BY asi.nombre;
 
 -- 2.6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
--- Las asignaturas las hacen profesores que pertenencen a dpartamentos.
--- Si profesor imparte asignatura --> departamento imparte asignatura. 
--- Solo las asignaturas que han sido imnpartidas por profes, han sido impartidas por los departamentos a los que pertenecen esos profes.
--- Los departamentos que no tiene profe, no han impartido asignaturas.
--- asignaturas que id_profesor es null dep del profe es null
-SELECT DISTINCT dp.nombre FROM asignatura asi RIGHT JOIN profesor pr ON asi.id_profesor = pr.id_profesor INNER JOIN departamento dp ON pr.id_departamento = dp.id WHERE asi.nombre IS NULL ORDER BY dp.nombre;
+
+-- ¡ERRONEA! SELECT DISTINCT dp.nombre, asi FROM asignatura asi RIGHT JOIN profesor pr ON asi.id_profesor = pr.id_profesor INNER JOIN departamento dp ON pr.id_departamento = dp.id WHERE asi.nombre IS NULL ORDER BY dp.nombre;
+SELECT DISTINCT dp.nombre FROM departamento dp left JOIN profesor pr ON dp.id = pr.id_departamento left JOIN asignatura asi ON pr.id_profesor = asi.id_profesor WHERE asi.nombre IS NULL ORDER BY dp.nombre;
+			-- se visualiza lo que se recoge poniendo delante en el SELECT: asi.nombre, pr.id_profesor, pr.id_departamento
 
 -- 3. Consultes resum:
 -- 3.1. Retorna el nombre total d'alumnes que hi ha.
