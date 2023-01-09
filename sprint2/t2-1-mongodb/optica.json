@@ -1,0 +1,70 @@
+use optica
+
+db.createCollection("proveedor", 
+{
+    "id_proveedor": {$oid},
+    "nombre": "",
+    "direccion":{
+        "calle":"",
+        "numero":"",
+        "piso": "",
+        "puerta":"",
+        "ciudad":"",
+        "cp": "",
+        "pais":""
+    },
+    "telefono":"",
+    "fax": "",
+    "nif":""
+
+})
+db.createCollection("marca",
+{
+    "id_marca":{$oid},
+    "nombre": "",
+    "proveedor.id_proveedor": "",
+})
+db.createCollection("gafa",
+{
+    "id_gafa":{$oid},
+    "nombre": "",
+    "graduacion_od":"",
+    "graduacion_oi":"",
+    "tipo":{
+        "flotante":"",
+        "pasta":"",
+        "metalica":""
+    },
+    "color_montura":"",
+    "color_cristal_od":"",
+    "color_cristal_oi":"",
+    "precio": int,
+    "proveedor.id_proveedor": "",
+    "marca.id_marca":""
+}
+db.createCollection("cliente",
+{
+    "id_cliente":{$oid},
+    "nombre":"",
+    "direccion":"",
+    "telefono":"",
+    "email":"",
+    "fecha_registro":"",
+    "recomendacion_id_cliente":"",
+}
+
+db.createCollection("empleado")
+{
+    "id_empleado":{$oid},
+    "nombre":"",
+}
+
+db.createCollection("venta",
+{
+    "id_venta":{$oid},
+    "fecha_venta":"",
+    "gafa.id_gafa":"",
+    "cliente.id_cliente":"",
+    "empleado.id_empleado": ""
+}
+
