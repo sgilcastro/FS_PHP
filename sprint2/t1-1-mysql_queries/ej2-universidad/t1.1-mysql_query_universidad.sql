@@ -7,6 +7,7 @@ SELECT nombre, apellido1, apellido2, fecha_nacimiento FROM persona WHERE tipo='a
 SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND telefono IS NULL) ORDER BY apellido1, apellido2, nombre;
 -- 1.3. Retorna el llistat dels/les alumnes que van néixer en 1999.
 SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND fecha_nacimiento between '1999-01-01' AND '1999-12-31') ORDER BY apellido1, apellido2, nombre;
+SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND YEAR(fecha_nacimiento) = '1999') ORDER BY apellido1, apellido2, nombre;
 /* (para probar si incluye la fecha que se pone) 
 SELECT nombre, apellido1, apellido2 FROM persona WHERE (tipo='alumno' AND fecha_nacimiento between '1999-02-11' AND '1999-05-24') ORDER BY apellido1, apellido2, nombre; */
 -- 1.4. Retorna el llistat de professors/es que no han donat d'alta el seu número de telèfon en la base de dades i a més el seu NIF acaba en K.
@@ -50,7 +51,8 @@ SELECT DISTINCT dp.nombre FROM departamento dp left JOIN profesor pr ON dp.id = 
 SELECT COUNT(id) 'Total alumnos' FROM persona WHERE tipo = 'alumno';
 -- 3.2. Calcula quants/es alumnes van néixer en 1999.
 -- ¡ERRONEA! SELECT COUNT(id) 'Total alumnos' FROM persona WHERE tipo = 'alumno';
-SELECT COUNT(id) 'Total alumnos' FROM persona WHERE  (tipo='alumno' AND fecha_nacimiento between '1999-01-01' AND '1999-12-31') ;
+SELECT COUNT(id) 'Total alumnos' FROM persona WHERE  (tipo='alumno' AND fecha_nacimiento between '1999-01-01' AND '1999-12-31');
+SELECT count(id) 'Total alumnos' FROM persona WHERE  (tipo='alumno' AND YEAR(fecha_nacimiento) = '1999');
 -- 3.3. Calcula quants/es professors/es hi ha en cada departament. 
 -- El resultat només ha de mostrar dues columnes, una amb el nom del departament i una altra amb el nombre de professors/es que hi ha en aquest departament. 
 -- El resultat només ha d'incloure els departaments que tenen professors/es associats i haurà d'estar ordenat de major a menor pel nombre de professors/es.
