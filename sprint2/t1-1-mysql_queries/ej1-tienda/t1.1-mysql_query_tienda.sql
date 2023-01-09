@@ -5,6 +5,7 @@ SELECT nombre FROM producto ORDER BY nombre ASC;
 SELECT nombre, codigo FROM producto ORDER BY nombre ASC;
 -- 3. Llista totes les columnes de la taula "producto".
 SELECT * FROM producto;
+SHOW COLUMNS FROM producto;
 -- 4. Llista el nom dels "productos", el preu en euros i el preu en dòlars nord-americans (USD).
 SELECT nombre, CONCAT(precio,' €') 'precio euro', CONCAT(ROUND((precio*1.04),2),' $') 'precio dolar' FROM producto ORDER BY nombre ASC;
 -- 5. Llista el nom dels "productos", el preu en euros i el preu en dòlars nord-americans. Utilitza els següents àlies per a les columnes: nom de "producto", euros, dòlars nord-americans.
@@ -18,7 +19,7 @@ SELECT nombre, UPPER(SUBSTRING(nombre, 1 , 2)) 'Código' FROM fabricante ORDER B
 -- 9. Llista els noms i els preus de tots els productes de la taula "producto", arrodonint el valor del preu.
 SELECT nombre, ROUND(precio,2) 'precio' FROM producto ORDER BY nombre ASC;
 -- 10. Llista els noms i els preus de tots els productes de la taula "producto", truncant el valor del preu per a mostrar-lo sense cap xifra decimal.
-SELECT nombre, ROUND(precio,0) 'precio' FROM producto ORDER BY nombre ASC;
+SELECT nombre, TRUNCATE(precio,0) 'precio' FROM producto ORDER BY nombre ASC;
 -- 11. Llista el codi dels fabricants que tenen productes en la taula "producto".
 select DISTINCT codigo_fabricante FROM producto ORDER BY codigo_fabricante ASC; 
 -- 12. Llista el codi dels fabricants que tenen productes en la taula "producto", eliminant els codis que apareixen repetits.
