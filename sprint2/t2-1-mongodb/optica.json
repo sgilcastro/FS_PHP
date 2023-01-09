@@ -1,4 +1,4 @@
-use optica
+use pizzeria
 
 db.createCollection("proveedor", 
 {
@@ -16,14 +16,15 @@ db.createCollection("proveedor",
     "telefono":"",
     "fax": "",
     "nif":""
-
 })
+
 db.createCollection("marca",
 {
     "id_marca":{$oid},
     "nombre": "",
-    "proveedor.id_proveedor": "",
+    "proveedor.id_proveedor": ""
 })
+
 db.createCollection("gafa",
 {
     "id_gafa":{$oid},
@@ -42,6 +43,7 @@ db.createCollection("gafa",
     "proveedor.id_proveedor": "",
     "marca.id_marca":""
 }
+
 db.createCollection("cliente",
 {
     "id_cliente":{$oid},

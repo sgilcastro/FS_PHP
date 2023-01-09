@@ -1,0 +1,79 @@
+use pizzeria
+
+db.createCollection("cliente",
+{
+	"id_cliente":{$oid},
+	"nombre":"",
+	"apellidos":"",
+	"direccion":"",
+	"cp":"",
+	"localidad":"",
+	"provincia":"",
+	"telefono":""
+}
+
+db.createCollection("tienda",
+{
+	"id_tienda":{$oid},
+	"direccion":"",
+	"cp":"",
+	"localidad":"",
+	"provincia":""
+}
+
+db.createCollection("pedido",
+{
+	"id_pedido":{$oid},
+	"fecha_hora":"",	
+	"cliente.id_cliente":"",
+	"tipo_pedido":{
+		"domicilio":{		
+			"fecha_hora_entrega":"",
+			"empleado.id_empleado":""
+		},
+		"tienda":""
+	},
+	"detalle_pedido":{
+		"producto.id_producto":"",
+		"unidades_producto":""
+	},
+	"tienda.id_tienda":""
+}
+
+db.createCollection("producto",
+{
+	"id_producto":{$oid},
+	"nombre":"",
+	"descripcion":"",
+	"img":"",
+	"precio":"",
+	"pedido.id_pedido":"",
+	"tipo":{
+		"pizza":{
+			"categoria.id_categoria":""
+		},
+		"hamburguesa":"",
+		"bebida":""
+    }
+}
+
+db.createCollection("categoria",
+{
+	"id_categoria":{$oid},
+	"nombre":""
+}
+
+db.createCollection("empleado",
+{
+	"id_empleado":{$oid},
+	"nombre":"",
+	"apellidos":"",
+	"nif":"",
+	"telefono":"",
+	"tipo_empleado":{
+		"cocinero":"",
+		"repartidor":""
+	},
+	"tienda.id_tienda":"",
+
+}
