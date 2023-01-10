@@ -1,72 +1,113 @@
-use pizzeria
+use optica
 
-db.createCollection("proveedor", 
+
+db.proveedores.insert([
 {
-    "id_proveedor": {$oid},
-    "nombre": "",
+    "id_proveedor": 1,
+    "nombre": "Slatic",
     "direccion":{
-        "calle":"",
-        "numero":"",
-        "piso": "",
-        "puerta":"",
-        "ciudad":"",
-        "cp": "",
-        "pais":""
+        "calle":"C/ Sin nombre",
+        "numero": "17",
+        "piso": 1,
+        "puerta": "A",
+        "ciudad":"Barcelona",
+        "cp": "08016",
+        "pais":"España"
     },
-    "telefono":"",
-    "fax": "",
-    "nif":""
-})
-
-db.createCollection("marca",
+    "telefono":"656778888",
+    "fax": "938887777",
+    "nif":"38133333K"
+},
 {
-    "id_marca":{$oid},
-    "nombre": "",
-    "proveedor.id_proveedor": ""
-})
+    "id_proveedor": 2,
+    "nombre": "Florido",
+    "direccion":{
+        "calle":"C/ Con nombre",
+        "numero": "50A",
+        "ciudad":"Barcelona",
+        "cp": "08030",
+        "pais":"España"
+    },
+    "telefono":"656778888",
+    "nif":"38133333K"
+}
+])
 
-db.createCollection("gafa",
+db.gafas.insert([
 {
-    "id_gafa":{$oid},
-    "nombre": "",
-    "graduacion_od":"",
-    "graduacion_oi":"",
+    "id_gafas": 1,
+    "nombre": "Sunshine",
+    "id_proveedor": 1,
+    "marca": "Ray-Ban",
     "tipo":{
-        "flotante":"",
-        "pasta":"",
-        "metalica":""
+        "flotante": 1,
+        "pasta": 0,
+        "metalica": 0
     },
     "color_montura":"",
-    "color_cristal_od":"",
-    "color_cristal_oi":"",
-    "precio": int,
-    "proveedor.id_proveedor": "",
-    "marca.id_marca":""
-}
-
-db.createCollection("cliente",
-{
-    "id_cliente":{$oid},
-    "nombre":"",
-    "direccion":"",
-    "telefono":"",
-    "email":"",
-    "fecha_registro":"",
-    "recomendacion_id_cliente":"",
-}
-
-db.createCollection("empleado")
-{
-    "id_empleado":{$oid},
-    "nombre":"",
-}
-
-db.createCollection("venta",
-{
-    "id_venta":{$oid},
+    "precio": 0.00,
+    "cristales": {
+        "graduacion_oi":"",
+        "color_cristal_oi":"",
+        "graduacion_od":"",
+        "color_cristal_od":""
+    },
     "fecha_venta":"",
-    "gafa.id_gafa":"",
-    "cliente.id_cliente":"",
-    "empleado.id_empleado": ""
-}
+    "fecha_venta_max":"",
+    "id_empleado":"",
+    "id_cliente":""
+},
+{
+    "id_gafas": 1,
+    "nombre": "Sunshine",
+    "id_proveedor": 1,
+    "marca": "Ray-Ban",
+    "tipo": "flotante",
+    "color_montura":"negra",
+    "precio": 150.75,
+    "cristales": {
+        "graduacion_oi": 1.75,
+        "color_cristal_oi": "marron",
+        "graduacion_od": 2.00,
+        "color_cristal_od": "marron"
+    },
+    "fecha_venta": ISODate("1999-12-11T23:00:00.000Z"),
+    "fecha_venta_max": ISODate("2022-12-11T23:00:00.000Z"),
+    "id_empleado": 1,
+    "id_cliente": 1 
+},
+{
+    "id_gafas": 2,
+    "nombre": "Pepinillo",
+    "id_proveedor": 1,
+    "marca": "Gucci",
+    "tipo":"metalica",
+    "color_montura":"",
+    "precio": 510.50,
+    "fecha_venta_max": ISODate("2023-12-11T23:00:00.000Z")
+}])
 
+db.clientes.insert([
+{
+    "id_cliente": 1,
+    "nombre":"Pepe Rodriguez",
+    "direccion": "C/ Bonanova, 31, 1 2",
+    "telefono": "999876567",
+    "email": "email@ggg.com",
+    "fecha_registro": ISODate("2023-01-07T19:00:00.000Z"),
+},
+{
+    "id_cliente": 2,
+    "nombre": "Antonia Gil",
+    "direccion": "c/ Oro, 32, 1A",
+    "telefono": "333333333",
+    "email": "ag@nuevo.com",
+    "fecha_registro": ISODate("2023-01-09T20:00:00.000Z"),
+    "recomendado_por_cliente": 1
+}])
+
+db.empleados.insert([
+{
+    "id_empleado": 1,
+    "nombre_empleado":"Belen"
+}])
