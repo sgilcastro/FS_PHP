@@ -1,6 +1,5 @@
 use optica
 
-
 db.proveedores.insert([
 {
     "id_proveedor": 1,
@@ -36,48 +35,48 @@ db.proveedores.insert([
 db.gafas.insert([
 {
     "id_gafas": 1,
-    "nombre": "Sunshine",
-    "id_proveedor": 1,
-    "marca": "Ray-Ban",
-    "tipo":{
-        "flotante": 1,
-        "pasta": 0,
-        "metalica": 0
+    "nombre": "Redlight",
+    "id_proveedor": 2,
+    "marca": "Benetton",
+    "tipo": "pasta",
+    "color_montura":"roja",
+    "precio": 189.00,
+    "compra":{
+        "cristales": {
+            "graduacion_oi": 2.75,
+            "color_cristal_oi": "transparente",
+            "graduacion_od": 2.00,
+            "color_cristal_od": "transparente"
+        },
+        "fecha_venta": ISODate("2022-11-11T19:00:00.000Z"),
+        "id_empleado": 2,
+        "id_cliente": 1
     },
-    "color_montura":"",
-    "precio": 0.00,
-    "cristales": {
-        "graduacion_oi":"",
-        "color_cristal_oi":"",
-        "graduacion_od":"",
-        "color_cristal_od":""
-    },
-    "fecha_venta":"",
-    "fecha_venta_max":"",
-    "id_empleado":"",
-    "id_cliente":""
+    "fecha_venta_max": ISODate("2022-12-11T23:00:00.000Z")
 },
 {
-    "id_gafas": 1,
+    "id_gafas": 2,
     "nombre": "Sunshine",
     "id_proveedor": 1,
     "marca": "Ray-Ban",
     "tipo": "flotante",
     "color_montura":"negra",
     "precio": 150.75,
-    "cristales": {
-        "graduacion_oi": 1.75,
-        "color_cristal_oi": "marron",
-        "graduacion_od": 2.00,
-        "color_cristal_od": "marron"
+    "compra":{
+        "cristales": {
+            "graduacion_oi": 1.75,
+            "color_cristal_oi": "marron",
+            "graduacion_od": 2.00,
+            "color_cristal_od": "marron"
+        },
+        "fecha_venta": ISODate("2023-01-11T19:00:00.000Z"),
+        "id_empleado": 1,
+        "id_cliente": 2
     },
-    "fecha_venta": ISODate("1999-12-11T23:00:00.000Z"),
-    "fecha_venta_max": ISODate("2022-12-11T23:00:00.000Z"),
-    "id_empleado": 1,
-    "id_cliente": 1 
+    "fecha_venta_max": ISODate("2022-12-11T23:00:00.000Z")
 },
 {
-    "id_gafas": 2,
+    "id_gafas": 3,
     "nombre": "Pepinillo",
     "id_proveedor": 1,
     "marca": "Gucci",

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project-189e" database="MongoDb" >
+	<schema name="optica" >
+		<table name="clientes" generator_rows="150" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_cliente" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="email" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fecha_registro" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="recomendado_por_cliente" type="int" length="800" decimal="0" jt="4" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_clientes_id_cliente" unique="UNIQUE_KEY" >
+				<column name="id_cliente" />
+			</index>
+			<fk name="fk_clientes_gafas" virtual="y" to_schema="optica" to_table="gafas" >
+				<fk_column name="id_cliente" pk="id_cliente" />
+			</fk>
+		</table>
+		<table name="empleados" prior="collection &quot;empleados&quot;" generator_rows="150" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_empleado" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre_empleado" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_empleados_id_empleado" unique="UNIQUE_KEY" >
+				<column name="id_empleado" />
+			</index>
+			<fk name="fk_empleados_gafas" virtual="y" to_schema="optica" to_table="gafas" >
+				<fk_column name="id_empleado" pk="id_empleado" />
+			</fk>
+		</table>
+		<table name="gafas" generator_rows="100" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_gafas" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="id_proveedor" type="int" jt="4" />
+			<column name="marca" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="tipo" type="object" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="flotante" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="pasta" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="metalica" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			</column>
+			<column name="color_montura" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="precio" type="object" length="800" decimal="0" jt="4999544" mandatory="y" />
+			<column name="cristales" type="object" length="800" decimal="0" jt="4999544" >
+				<column name="graduacion_oi" type="object" length="800" decimal="0" jt="4999544" mandatory="y" />
+				<column name="color_cristal_oi" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="graduacion_od" type="object" length="800" decimal="0" jt="4999544" mandatory="y" />
+				<column name="color_cristal_od" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			</column>
+			<column name="fecha_venta" type="object" length="800" decimal="0" jt="4999544" />
+			<column name="fecha_venta_max" type="object" length="800" decimal="0" jt="4999544" mandatory="y" />
+			<column name="id_empleado" type="object" length="800" decimal="0" jt="4999544" />
+			<column name="id_cliente" type="object" length="800" decimal="0" jt="4999544" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_gafas_id_gafas" unique="UNIQUE_KEY" >
+				<column name="id_gafas" />
+			</index>
+		</table>
+		<table name="proveedores" generator_rows="150" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_proveedor" type="int" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="object" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="calle" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="numero" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="piso" type="int" length="800" decimal="0" jt="4" />
+				<column name="puerta" type="string" length="800" decimal="0" jt="12" />
+				<column name="ciudad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="cp" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="pais" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			</column>
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fax" type="string" length="800" decimal="0" jt="12" />
+			<column name="nif" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_proveedores_id_proveedor" unique="UNIQUE_KEY" >
+				<column name="id_proveedor" />
+			</index>
+			<fk name="fk_proveedores_gafas" virtual="y" to_schema="optica" to_table="gafas" >
+				<fk_column name="id_proveedor" pk="id_proveedor" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.wisecoders.dbschema.mongodb.JdbcDriver" driver_jar="mongojdbc4.8.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="optica" user="admin" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-239a" show_relation="name" >
+		<entity schema="optica" name="clientes" color="BED3F4" x="752" y="80" />
+		<entity schema="optica" name="gafas" column="cristales" color="C7F4BE" x="480" y="432" />
+		<entity schema="optica" name="proveedores" column="direccion" color="F4DDBE" x="80" y="288" />
+		<entity schema="optica" name="empleados" color="BED3F4" x="752" y="320" />
+		<entity schema="optica" name="gafas" color="C7F4BE" x="416" y="80" />
+		<entity schema="optica" name="proveedores" color="F4DDBE" x="48" y="96" />
+		<entity schema="optica" name="gafas" column="tipo" color="C7F4BE" x="368" y="448" />
+		<group name="Collection &#039;clientes&#039;" color="ECF0F7" >
+			<entity schema="optica" name="clientes" />
+		</group>
+		<group name="Collection &#039;proveedores&#039;" color="F7F2EC" >
+			<entity schema="optica" name="proveedores" column="direccion" />
+			<entity schema="optica" name="proveedores" />
+		</group>
+		<group name="Collection &#039;gafas&#039;" color="EEF7EC" >
+			<entity schema="optica" name="gafas" />
+			<entity schema="optica" name="gafas" column="tipo" />
+			<entity schema="optica" name="gafas" column="cristales" />
+		</group>
+		<group name="Collection &#039;empleados&#039;" color="FFFFB3" >
+			<entity schema="optica" name="empleados" />
+		</group>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-1c4d" show_column_type="y" show_relation="name" >
+		<entity schema="optica" name="clientes" color="BED3F4" x="304" y="576" />
+		<entity schema="optica" name="gafas" column="cristales" color="C7F4BE" x="528" y="384" />
+		<entity schema="optica" name="proveedores" column="direccion" color="F4DDBE" x="80" y="336" />
+		<entity schema="optica" name="empleados" color="BED3F4" x="608" y="608" />
+		<entity schema="optica" name="gafas" color="C7F4BE" x="448" y="80" />
+		<entity schema="optica" name="proveedores" color="F4DDBE" x="48" y="112" />
+		<entity schema="optica" name="gafas" column="tipo" color="C7F4BE" x="400" y="384" />
+		<group name="clientes" color="ECF0F7" >
+			<entity schema="optica" name="clientes" />
+			<entity schema="optica" name="empleados" />
+		</group>
+		<group name="proveedores" color="F7F2EC" >
+			<entity schema="optica" name="proveedores" />
+			<entity schema="optica" name="proveedores" column="direccion" />
+		</group>
+		<group name="gafas" color="EEF7EC" >
+			<entity schema="optica" name="gafas" column="cristales" />
+			<entity schema="optica" name="gafas" column="tipo" />
+			<entity schema="optica" name="gafas" />
+		</group>
+		<script name="Query Editor" id="Editor-34c" language="SQL" >
+			<string><![CDATA[optica.gafas.find()
+
+//OR
+
+USE optica;
+db.gafas.find()
+
+//OR
+
+USE optica;
+db.getCollection('gafas').find()]]></string>
+		</script>
+		<browser id="Browse-5ad" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="optica" entity="gafas" x="20" y="20" width="400" height="300" record_view="y" />
+		</browser>
+		<form name="Report" id="Report-30b" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Gafas Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="_id" type="-8" />
+						<var name="id_gafas" type="4" />
+						<var name="nombre" type="-1" />
+						<var name="id_proveedor" type="4" />
+						<var name="marca" type="-1" />
+						<var name="tipo" type="4999544" />
+						<var name="color_montura" type="-1" />
+						<var name="precio" type="4999544" />
+						<var name="cristales" type="4999544" />
+						<var name="fecha_venta" type="4999544" />
+						<var name="fecha_venta_max" type="4999544" />
+						<var name="id_empleado" type="4999544" />
+						<var name="id_cliente" type="4999544" />
+						<script ><![CDATA[optica.gafas.find()]]></script>
+					</form_script>
+					<param name="i0" value="color_montura" />
+					<param name="width" value="100%" />
+					<param name="v0" value="id_proveedor" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="_id" type="-8" />
+						<var name="id_gafas" type="4" />
+						<var name="nombre" type="-1" />
+						<var name="id_proveedor" type="4" />
+						<var name="marca" type="-1" />
+						<var name="tipo" type="4999544" />
+						<var name="color_montura" type="-1" />
+						<var name="precio" type="4999544" />
+						<var name="cristales" type="4999544" />
+						<var name="fecha_venta" type="4999544" />
+						<var name="fecha_venta_max" type="4999544" />
+						<var name="id_empleado" type="4999544" />
+						<var name="id_cliente" type="4999544" />
+						<script ><![CDATA[optica.gafas.find()]]></script>
+					</form_script>
+					<cell type="label" name="_id" pos="0,0,0,0,c,c" />
+					<cell type="label" name="id_gafas" pos="1,0,1,0,c,c" />
+					<cell type="label" name="nombre" pos="2,0,2,0,c,c" />
+					<cell type="label" name="id_proveedor" pos="3,0,3,0,c,c" />
+					<cell type="label" name="marca" pos="4,0,4,0,c,c" />
+					<cell type="label" name="tipo" pos="5,0,5,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="6,0,6,0,c,c" />
+					<cell type="label" name="${_id}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${id_gafas}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${nombre}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${id_proveedor}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="label" name="${marca}" template="Plain" pos="4,1,4,1,l,c" />
+					<cell type="label" name="${tipo}" template="Plain" pos="5,1,5,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="6,1,6,1,c,c" ref_id="Report-30b" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-30b" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-30b" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-30b" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
