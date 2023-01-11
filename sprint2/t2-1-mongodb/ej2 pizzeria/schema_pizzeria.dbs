@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project-111e" database="MongoDb" >
+	<schema name="pizzeria" >
+		<table name="clientes" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_cliente" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="apellidos" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="cp" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="localidad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="provincia" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_clientes_id_cliente" unique="UNIQUE_KEY" >
+				<column name="id_cliente" />
+			</index>
+		</table>
+		<table name="empleados" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_empleado" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="apellidos" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="nif" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="tipo_empleado" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="idx_empleados_id_empleado" unique="NORMAL" >
+				<column name="id_empleado" />
+			</index>
+			<fk name="fk_empleados_tiendas" virtual="y" to_schema="pizzeria" to_table="tiendas" >
+				<fk_column name="id_empleado" pk="empleados.id_empleado" />
+			</fk>
+		</table>
+		<table name="pedidos" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_pedido" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="fecha_hora" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="id_cliente" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="entrega" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fecha_hora_entrega" type="date" length="800" decimal="0" jt="91" />
+			<column name="id_repartidor" type="int" length="800" decimal="0" jt="4" />
+			<column name="detalle_pedido" type="array[object]" length="800" decimal="0" jt="4999545" mandatory="y" >
+				<column name="id_producto" prior="id_pedido" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			</column>
+			<column name="id_tienda" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="id_empleado" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_pedidos_id_pedido" unique="UNIQUE_KEY" >
+				<column name="id_pedido" />
+			</index>
+			<fk name="fk_pedidos_clientes" virtual="y" to_schema="pizzeria" to_table="clientes" >
+				<fk_column name="id_cliente" pk="id_cliente" />
+			</fk>
+			<fk name="fk_pedidos_empleados" virtual="y" to_schema="pizzeria" to_table="empleados" >
+				<fk_column name="id_repartidor" pk="id_empleado" />
+			</fk>
+			<fk name="fk_pedidos_tiendas" virtual="y" to_schema="pizzeria" to_table="tiendas" >
+				<fk_column name="id_tienda" pk="id_tienda" />
+			</fk>
+			<fk name="fk_pedidos_empleados_0" virtual="y" to_schema="pizzeria" to_table="empleados" >
+				<fk_column name="id_empleado" pk="id_empleado" />
+			</fk>
+			<fk name="fk_pedidos_productos" virtual="y" to_schema="pizzeria" to_table="productos" >
+				<fk_column name="detalle_pedido.id_producto" pk="id_producto" />
+			</fk>
+		</table>
+		<table name="productos" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_producto" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="descripcion" type="string" length="800" decimal="0" jt="12" />
+			<column name="img" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="precio" type="double" length="800" decimal="0" jt="8" mandatory="y" />
+			<column name="tipo" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="categoria" type="string" length="800" decimal="0" jt="12" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_productos_id_producto" unique="UNIQUE_KEY" >
+				<column name="id_producto" />
+			</index>
+		</table>
+		<table name="tiendas" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="id_tienda" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="direccion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="cp" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="localidad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="provincia" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="empleados" type="array[object]" length="800" decimal="0" jt="4999545" mandatory="y" >
+				<column name="id_empleado" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			</column>
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="unq_tiendas_id_tienda" unique="UNIQUE_KEY" >
+				<column name="id_tienda" />
+			</index>
+			<index name="unq_tiendas_id_empleado" unique="NORMAL" >
+				<column name="empleados.id_empleado" />
+			</index>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.wisecoders.dbschema.mongodb.JdbcDriver" driver_jar="mongojdbc4.8.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="pizzeria" user="admin" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-2c4" show_relation="name" >
+		<entity schema="pizzeria" name="clientes" color="BED3F4" x="752" y="112" />
+		<entity schema="pizzeria" name="pedidos" column="detalle_pedido" color="C7F4BE" x="400" y="448" />
+		<entity schema="pizzeria" name="tiendas" column="empleados" color="F4DDBE" x="48" y="288" />
+		<entity schema="pizzeria" name="empleados" color="BED3F4" x="160" y="624" />
+		<entity schema="pizzeria" name="pedidos" color="C7F4BE" x="368" y="80" />
+		<entity schema="pizzeria" name="productos" color="BED3F4" x="816" y="448" />
+		<entity schema="pizzeria" name="tiendas" color="F4DDBE" x="64" y="80" />
+		<group name="Collection &#039;clientes&#039;" color="ECF0F7" >
+			<entity schema="pizzeria" name="clientes" />
+		</group>
+		<group name="Collection &#039;pedidos&#039;" color="EEF7EC" >
+			<entity schema="pizzeria" name="pedidos" />
+			<entity schema="pizzeria" name="pedidos" column="detalle_pedido" />
+		</group>
+		<group name="Collection &#039;tiendas&#039;" color="F7F2EC" >
+			<entity schema="pizzeria" name="tiendas" />
+			<entity schema="pizzeria" name="tiendas" column="empleados" />
+		</group>
+		<group name="Collection &quot;empleados&quot;" color="C4E0F9" >
+			<entity schema="pizzeria" name="empleados" />
+		</group>
+		<group name="Collection &quot;productos&quot;" color="C4E0F9" >
+			<entity schema="pizzeria" name="productos" />
+		</group>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-d9c" show_column_type="y" show_relation="name" >
+		<entity schema="pizzeria" name="clientes" color="BED3F4" x="368" y="544" />
+		<entity schema="pizzeria" name="pedidos" column="detalle_pedido" color="C7F4BE" x="96" y="336" />
+		<entity schema="pizzeria" name="empleados" color="BED3F4" x="576" y="544" />
+		<entity schema="pizzeria" name="tiendas" column="empleados" color="F4DDBE" x="384" y="288" />
+		<entity schema="pizzeria" name="pedidos" color="C7F4BE" x="48" y="80" />
+		<entity schema="pizzeria" name="productos" color="BED3F4" x="576" y="832" />
+		<entity schema="pizzeria" name="tiendas" color="F4DDBE" x="368" y="80" />
+		<group name="clientes" color="ECF0F7" >
+			<entity schema="pizzeria" name="clientes" />
+			<entity schema="pizzeria" name="empleados" />
+			<entity schema="pizzeria" name="productos" />
+		</group>
+		<group name="pedidos" color="EEF7EC" >
+			<entity schema="pizzeria" name="pedidos" />
+			<entity schema="pizzeria" name="pedidos" column="detalle_pedido" />
+		</group>
+		<group name="tiendas" color="F7F2EC" >
+			<entity schema="pizzeria" name="tiendas" />
+			<entity schema="pizzeria" name="tiendas" column="empleados" />
+		</group>
+		<script name="Query Editor" id="Editor-1449" language="SQL" >
+			<string><![CDATA[pizzeria.pedidos.find()
+
+//OR
+
+USE pizzeria;
+db.pedidos.find()
+
+//OR
+
+USE pizzeria;
+db.getCollection('pedidos').find()]]></string>
+		</script>
+		<browser id="Browse-d35" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="pizzeria" entity="pedidos" x="20" y="20" width="400" height="300" record_view="y" />
+		</browser>
+		<query id="Query-231d" name="Query Builder" >
+			<query_table schema="pizzeria" name="pedidos" alias="pedidos" x="48" y="48" >
+				<column name="_id" />
+				<column name="id_pedido" />
+				<column name="fecha_hora" />
+				<column name="id_cliente" />
+				<column name="entrega" />
+				<column name="fecha_hora_entrega" />
+				<column name="id_repartidor" />
+				<column name="detalle_pedido" />
+				<column name="id_tienda" />
+				<column name="id_empleado" />
+			</query_table>
+		</query>
+		<form name="Report" id="Report-f2d" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Pedidos Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="_id" type="-8" />
+						<var name="id_pedido" type="4" />
+						<var name="fecha_hora" type="91" />
+						<var name="id_cliente" type="4" />
+						<var name="entrega" />
+						<var name="fecha_hora_entrega" type="91" />
+						<var name="id_repartidor" type="4" />
+						<var name="detalle_pedido" type="4999545" />
+						<var name="id_tienda" type="4" />
+						<var name="id_empleado" type="4" />
+						<script ><![CDATA[pizzeria.pedidos.find()]]></script>
+					</form_script>
+					<param name="i0" value="entrega" />
+					<param name="width" value="100%" />
+					<param name="v0" value="id_empleado" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="_id" type="-8" />
+						<var name="id_pedido" type="4" />
+						<var name="fecha_hora" type="91" />
+						<var name="id_cliente" type="4" />
+						<var name="entrega" />
+						<var name="fecha_hora_entrega" type="91" />
+						<var name="id_repartidor" type="4" />
+						<var name="detalle_pedido" type="4999545" />
+						<var name="id_tienda" type="4" />
+						<var name="id_empleado" type="4" />
+						<script ><![CDATA[pizzeria.pedidos.find()]]></script>
+					</form_script>
+					<cell type="label" name="_id" pos="0,0,0,0,c,c" />
+					<cell type="label" name="id_pedido" pos="1,0,1,0,c,c" />
+					<cell type="label" name="fecha_hora" pos="2,0,2,0,c,c" />
+					<cell type="label" name="id_cliente" pos="3,0,3,0,c,c" />
+					<cell type="label" name="entrega" pos="4,0,4,0,c,c" />
+					<cell type="label" name="fecha_hora_entrega" pos="5,0,5,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="6,0,6,0,c,c" />
+					<cell type="label" name="${_id}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${id_pedido}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${fecha_hora}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${id_cliente}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="label" name="${entrega}" template="Plain" pos="4,1,4,1,l,c" />
+					<cell type="label" name="${fecha_hora_entrega}" template="Plain" pos="5,1,5,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="6,1,6,1,c,c" ref_id="Report-f2d" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-f2d" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-f2d" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-f2d" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>

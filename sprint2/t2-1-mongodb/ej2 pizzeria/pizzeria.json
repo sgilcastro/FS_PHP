@@ -19,25 +19,30 @@ db.createCollection("tienda",
 	"cp":"",
 	"localidad":"",
 	"provincia":""
+	"empleados": {[
+		"id_empleado":"",
+		"id_empleado2":""
+	]}
 }
 
 db.createCollection("pedido",
 {
 	"id_pedido":{$oid},
 	"fecha_hora":"",	
-	"cliente.id_cliente":"",
+	"id_cliente":"",
 	"tipo_pedido":{
 		"domicilio":{		
 			"fecha_hora_entrega":"",
-			"empleado.id_empleado":""
+			"id_empleado":""
 		},
 		"tienda":""
 	},
-	"detalle_pedido":{
-		"producto.id_producto":"",
-		"unidades_producto":""
-	},
-	"tienda.id_tienda":""
+	"detalle_pedido":{[
+		"id_producto":"",
+		"id_producto":""
+	]},
+	"id_tienda":"",
+	"id_empleado":""
 }
 
 db.createCollection("producto",
@@ -47,20 +52,15 @@ db.createCollection("producto",
 	"descripcion":"",
 	"img":"",
 	"precio":"",
-	"pedido.id_pedido":"",
+	"id_pedido":"",
 	"tipo":{
-		"pizza":{
-			"categoria.id_categoria":""
+		"pizza"{
+			"pizza"
+			"categoria":""
 		},
 		"hamburguesa":"",
 		"bebida":""
     }
-}
-
-db.createCollection("categoria",
-{
-	"id_categoria":{$oid},
-	"nombre":""
 }
 
 db.createCollection("empleado",
@@ -74,6 +74,4 @@ db.createCollection("empleado",
 		"cocinero":"",
 		"repartidor":""
 	},
-	"tienda.id_tienda":"",
-
 }
