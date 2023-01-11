@@ -30,7 +30,7 @@ db.tiendas.insert([
 	"cp":"08033",
 	"localidad":"Barcelona",
 	"provincia":"Barcelona",
-	"empleados": [{"id_empleado":1},{"id_empleado":2}] //id_empleado
+	"empleados": [{"id_empleado":1},{"id_empleado":2}] //array de empleados por id_empleado (se relacionan con la colección empleados)
 },
 {
 	"id_tienda": 2,
@@ -38,7 +38,7 @@ db.tiendas.insert([
 	"cp":"08054",
 	"localidad":"Sabadell",
 	"provincia":"Barcelona",
-	"empleados": [{"id_empleado":3}] //id_empleado
+	"empleados": [{"id_empleado":3}] //array de empleados por id_empleado (se relacionan con la colección empleados)
 }
 ])
 
@@ -50,7 +50,7 @@ db.pedidos.insert([
 	"entrega":"domicilio",
 	"fecha_hora_entrega":ISODate("2022-11-11T20:00:00.000Z"),
 	"id_repartidor": 1,
-	"detalle_pedido":[{"id_pedido":1},{"id_pedido":2},{"id_pedido":1},{"id_pedido":3}], //id_producto
+	"detalle_pedido":[{"id_producto":1},{"id_producto":2},{"id_producto":1},{"id_producto":3}], //array de id_producto (se relacionan con la colección productos)
 	"id_tienda":1,
 	"id_empleado":2
 },
@@ -59,7 +59,7 @@ db.pedidos.insert([
 	"fecha_hora":ISODate("2022-11-11T19:15:00.000Z"),	
 	"id_cliente":2,
 	"entrega":"domicilio",
-	"detalle_pedido":[{"id_pedido":2},{"id_pedido":1},{"id_pedido":3}], //id_producto
+	"detalle_pedido":[{"id_producto":2},{"id_producto":1},{"id_producto":3}], //array de id_producto (se relacionan con la colección productos)
 	"id_tienda":2,
 	"id_empleado":3
 }

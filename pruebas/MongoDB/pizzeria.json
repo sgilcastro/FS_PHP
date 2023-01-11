@@ -20,8 +20,8 @@ db.createCollection("tienda",
 	"localidad":"",
 	"provincia":""
 	"empleados": {[
-		"id_empleado":"",
-		"id_empleado2":""
+		"id_empleado":"", // se relaciona con el id_empleado de la colección empleados
+		"id_empleado":"" // se ùeden introducir todos los empleados de la tienDA y entre ellos no pueden repetirse
 	]}
 }
 
@@ -38,7 +38,7 @@ db.createCollection("pedido",
 		"tienda":""
 	},
 	"detalle_pedido":{[
-		"id_producto":"",
+		"id_producto":"", // se introduce un array con todos los productos del pedido, se pueden repetir
 		"id_producto":""
 	]},
 	"id_tienda":"",
