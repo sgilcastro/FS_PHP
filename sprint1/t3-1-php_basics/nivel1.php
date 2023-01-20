@@ -103,16 +103,16 @@
         El mòdul.*/
 
         echo "<b>Siendo X = " . $X . " y Y = " . $Y . "</b><br>";
-        echo "X + Y = " . $X + $Y . "<br>";
-        echo "X - Y = " . $X - $Y."<br>";
+        echo "X + Y = " . ($X + $Y) . "<br>";
+        echo "X - Y = " . ($X - $Y)."<br>";
         echo "X x Y = " . $X * $Y."<br>";
         echo "El resto de X entre Y = " . $X % $Y."<br><br>";
 
         /*Per N i M realitzaràs el mateix.*/
         echo "<b>Siendo M = " . $M . " y N = " . $N . "</b><br>";
-        echo "N + M = " . $N + $M."<br>";
-        echo "N - M = " . $N - $M."<br>";
-        echo "N x M = " . $N * $M ."<br>";
+        echo "N + M = " . ($N + $M) . "<br>";
+        echo "N - M = " . ($N - $M) . "<br>";
+        echo "N x M = " . $N * $M . "<br>";
         echo "El resto de N entre M = " . $N % $M."<br><br>";
 
         /*Per a totes les variables (X, Y, N, M)
