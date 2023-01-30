@@ -1,0 +1,138 @@
+use pizzeria
+
+db.clientes.insert([
+{
+	"id_cliente": 1,
+	"nombre":"Pepito",
+	"apellidos":"Gómez",
+	"direccion":"C/bla bla, 34",
+	"cp":"08033",
+	"localidad":"Barcelona",
+	"provincia":"Barcelona",
+	"telefono":"333333333"
+},
+{
+	"id_cliente": 2,
+	"nombre":"Dolores",
+	"apellidos":"Smith",
+	"direccion":"c/Alegria, s/n",
+	"cp":"08099",
+	"localidad":"Barcelona",
+	"provincia":"Barcelona",
+	"telefono":"222222222"
+}
+])
+
+db.tiendas.insert([
+{
+	"id_tienda": 1,
+	"direccion":"c/No se que poner, 22",
+	"cp":"08033",
+	"localidad":"Barcelona",
+	"provincia":"Barcelona",
+	"empleados": 
+	[
+		{"id_empleado":1},
+		{"id_empleado":2}
+	] //array de empleados por id_empleado (se relacionan con la colección empleados)
+},
+{
+	"id_tienda": 2,
+	"direccion":"c/esa misma, 34",
+	"cp":"08054",
+	"localidad":"Sabadell",
+	"provincia":"Barcelona",
+	"empleados": 
+	[
+		{"id_empleado":3}
+	] //array de empleados por id_empleado (se relacionan con la colección empleados)
+}
+])
+
+db.pedidos.insert([
+{
+	"id_pedido": 1,
+	"fecha_hora": ISODate("2022-11-11T19:00:00.000Z"),	
+	"id_cliente": 1,
+	"entrega":"domicilio",
+	"fecha_hora_entrega":ISODate("2022-11-11T20:00:00.000Z"),
+	"id_repartidor": 1,
+	"detalle_pedido":
+	[
+		{"id_producto":1},
+		{"id_producto":2},
+		{"id_producto":1},
+		{"id_producto":3}
+	], //array de id_producto (se relacionan con la colección productos)
+	"id_tienda":1,
+	"id_empleado":2
+},
+{
+	"id_pedido": 2,
+	"fecha_hora":ISODate("2022-11-11T19:15:00.000Z"),	
+	"id_cliente":2,
+	"entrega":"domicilio",
+	"detalle_pedido":
+	[
+		{"id_producto":2},
+		{"id_producto":1},
+		{"id_producto":3}
+	], //array de id_producto (se relacionan con la colección productos)
+	"id_tienda":2,
+	"id_empleado":3
+}
+])
+
+db.productos.insert([
+{
+	"id_producto": 1,
+	"nombre":"Pizza margarita",
+	"descripcion":"Queso, tomate",
+	"img":"img1.jpg",
+	"precio": 9.5,
+	"tipo":"Pizza",
+	"categoria":"Básica"
+},
+{
+	"id_producto": 2,
+	"nombre":"Hamburguesa azul",
+	"descripcion":"Hamburguesa de ternera con queso azul",
+	"img":"img2.jpg",
+	"precio":11.75,
+	"tipo":"hamburguesa"
+},
+{
+	"id_producto": 3,
+	"nombre":"Cocacola",
+	"img":"img3.jpg",
+	"precio":2.15,
+	"tipo":"bebida"
+}
+])
+
+db.empleados.insert([
+{
+	"id_empleado": 1,
+	"nombre":"Jose",
+	"apellidos":"Es Otro",
+	"nif":"33333333P",
+	"telefono":"666666666",
+	"tipo_empleado":"cocinero"
+},
+{
+	"id_empleado": 2,
+	"nombre":"Ana",
+	"apellidos":"Bla Bla",
+	"nif":"456333322R",
+	"telefono":"666223345",
+	"tipo_empleado":"repartidor"
+},
+{
+	"id_empleado": 3,
+	"nombre":"Antonio",
+	"apellidos":"Uno Dos",
+	"nif":"92344567J",
+	"telefono":"699999999",
+	"tipo_empleado":"cocinero"
+}
+])
