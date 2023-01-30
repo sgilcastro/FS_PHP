@@ -30,7 +30,25 @@ db.tiendas.insert([
 	"cp":"08033",
 	"localidad":"Barcelona",
 	"provincia":"Barcelona",
-	"empleados": [{"id_empleado":1},{"id_empleado":2}] //array de empleados por id_empleado (se relacionan con la colección empleados)
+	"empleados": 
+	[
+        {
+            "id_empleado": 1,
+            "nombre":"Jose",
+            "apellidos":"Es Otro",
+            "nif":"33333333P",
+            "telefono":"666666666",
+            "tipo_empleado":"cocinero"
+        },
+        {
+            "id_empleado": 2,
+            "nombre":"Ana",
+            "apellidos":"Bla Bla",
+            "nif":"456333322R",
+            "telefono":"666223345",
+            "tipo_empleado":"repartidor"
+        }
+	] //array de empleados por id_empleado (se relacionan con la colección empleados)
 },
 {
 	"id_tienda": 2,
@@ -38,7 +56,17 @@ db.tiendas.insert([
 	"cp":"08054",
 	"localidad":"Sabadell",
 	"provincia":"Barcelona",
-	"empleados": [{"id_empleado":3}] //array de empleados por id_empleado (se relacionan con la colección empleados)
+	"empleados": 
+	[
+		{
+            "id_empleado": 3,
+            "nombre":"Antonio",
+            "apellidos":"Uno Dos",
+            "nif":"92344567J",
+            "telefono":"699999999",
+            "tipo_empleado":"cocinero"
+        }
+	] //array de empleados por id_empleado (se relacionan con la colección empleados)
 }
 ])
 
@@ -50,7 +78,13 @@ db.pedidos.insert([
 	"entrega":"domicilio",
 	"fecha_hora_entrega":ISODate("2022-11-11T20:00:00.000Z"),
 	"id_repartidor": 1,
-	"detalle_pedido":[{"id_producto":1},{"id_producto":2},{"id_producto":1},{"id_producto":3}], //array de id_producto (se relacionan con la colección productos)
+	"detalle_pedido":
+	[
+		{"id_producto":1},
+		{"id_producto":2},
+		{"id_producto":1},
+		{"id_producto":3}
+	], //array de id_producto (se relacionan con la colección productos)
 	"id_tienda":1,
 	"id_empleado":2
 },
@@ -59,7 +93,12 @@ db.pedidos.insert([
 	"fecha_hora":ISODate("2022-11-11T19:15:00.000Z"),	
 	"id_cliente":2,
 	"entrega":"domicilio",
-	"detalle_pedido":[{"id_producto":2},{"id_producto":1},{"id_producto":3}], //array de id_producto (se relacionan con la colección productos)
+	"detalle_pedido":
+	[
+		{"id_producto":2},
+		{"id_producto":1},
+		{"id_producto":3}
+	], //array de id_producto (se relacionan con la colección productos)
 	"id_tienda":2,
 	"id_empleado":3
 }
@@ -89,32 +128,5 @@ db.productos.insert([
 	"img":"img3.jpg",
 	"precio":2.15,
 	"tipo":"bebida"
-}
-])
-
-db.empleados.insert([
-{
-	"id_empleado": 1,
-	"nombre":"Jose",
-	"apellidos":"Es Otro",
-	"nif":"33333333P",
-	"telefono":"666666666",
-	"tipo_empleado":"cocinero"
-},
-{
-	"id_empleado": 2,
-	"nombre":"Ana",
-	"apellidos":"Bla Bla",
-	"nif":"456333322R",
-	"telefono":"666223345",
-	"tipo_empleado":"repartidor"
-},
-{
-	"id_empleado": 3,
-	"nombre":"Antonio",
-	"apellidos":"Uno Dos",
-	"nif":"92344567J",
-	"telefono":"699999999",
-	"tipo_empleado":"cocinero"
 }
 ])

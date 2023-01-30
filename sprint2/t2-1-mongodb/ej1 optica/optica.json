@@ -32,6 +32,17 @@ db.proveedores.insert([
 }
 ])
 
+db.empleados.insert([
+{
+    "id_empleado": 1,
+    "nombre_empleado":"Belen"
+},
+{
+    "id_empleado": 2,
+    "nombre_empleado":"Maria"
+}
+])
+
 db.gafas.insert([
 {
     "id_gafas": 1,
@@ -62,8 +73,10 @@ db.gafas.insert([
     "tipo": "flotante",
     "color_montura":"negra",
     "precio": 150.75,
-    "compra":{
-        "cristales": {
+    "compra":
+    {
+        "cristales": 
+        {
             "graduacion_oi": 1.75,
             "color_cristal_oi": "marron",
             "graduacion_od": 2.00,
@@ -84,7 +97,8 @@ db.gafas.insert([
     "color_montura":"",
     "precio": 510.50,
     "fecha_venta_max": ISODate("2023-12-11T23:00:00.000Z")
-}])
+}
+])
 
 db.clientes.insert([
 {
@@ -103,10 +117,7 @@ db.clientes.insert([
     "email": "ag@nuevo.com",
     "fecha_registro": ISODate("2023-01-09T20:00:00.000Z"),
     "recomendado_por_cliente": 1
-}])
+}
+])
 
-db.empleados.insert([
-{
-    "id_empleado": 1,
-    "nombre_empleado":"Belen"
-}])
+
