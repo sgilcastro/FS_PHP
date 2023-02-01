@@ -1,0 +1,56 @@
+{
+    "users": [
+        {
+            "id_user":"1",
+            "name":"Susana",
+            "surname":"Gil", 
+            "user": "sgil", 
+            "email": "susanagilcastro@gmail.com", 
+            "pw": "",
+            "tareas": [
+                {
+                    "id_tarea": "1",
+                    "titulo": "Mirar apuntes php",
+                    "descripción": "",
+                    "estado":"Pendiente",
+                    "hora_inicio": "2023-01-11T19:00:00.000Z",
+                    "hora_fin": "2023-01-11T19:00:00.000Z"
+                },
+                {
+                    "id_tarea": "2",
+                    "titulo": "Comprar pan",
+                    "descripción": "",
+                    "estado":"Pendiente",
+                        "hora_inicio": "2023-01-11T19:00:00.000Z",
+                    "hora_fin": "2023-01-11T19:00:00.000Z"
+                }
+            ]
+        },
+        {
+            "id_user":"2",
+            "name":"Nombre",
+            "surname":"Apellido",
+            "user": "usuario", 
+            "email": "email@email.com", 
+            "pw": "",
+            "tareas": [
+                {
+                    "id_tarea": "4",
+                    "titulo": "Beber agua",
+                    "descripción": "",
+                    "estado":"A medias",
+                    "hora_inicio": "2023-01-11T19:00:00.000Z",
+                    "hora_fin": "2023-01-11T19:00:00.000Z"
+                },
+                {
+                    "id_tarea": "5",
+                    "titulo": "Bailar chachacha",
+                    "descripción": "",
+                    "estado":"",
+                    "hora_inicio": "2023-01-11T19:00:00.000Z",
+                    "hora_fin": "2023-01-11T19:00:00.000Z"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "name": "Monty",
+    "email": "monty@something.com",
+    "age": 77,
+    "countries": [
+        {"name": "Spain", "year": 1982},
+        {"name": "Australia", "year": 1996},
+        {"name": "Germany", "year": 1987}
+    ]
+}
