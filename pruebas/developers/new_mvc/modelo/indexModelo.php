@@ -16,7 +16,7 @@ class Modelo{
         $resultado=$this->db->query($consulta);
         if ($resultado) {
             return true;
-        }else {
+        } else {
             return false;
         }
      }

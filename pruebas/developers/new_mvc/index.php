@@ -5,7 +5,7 @@ require_once("config.php");
 
 //para ver si trabaja correctamente hacemos un var_dump para que imprima la urlsite indicada en el index --> 
 
-var_dump(urlsite);
+//var_dump(urlsite);
 
 require_once("controlador/indexController.php");
 
@@ -13,13 +13,13 @@ require_once("controlador/indexController.php");
 
 // modeloController::index();
 
-if(isset($_GET['m'])):
+if(isset($_GET['m'])){
     $metodo = $_GET['m'];
-    if(method_exists(modeloController,$metodo)):
+    if(method_exists("modeloController",$metodo)){
         modeloController::{$metodo}();
-    endif;
-else:
+    }    
+}else{
     modeloController::index();
-endif;
+}
 
 ?>

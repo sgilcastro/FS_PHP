@@ -26,8 +26,46 @@ class modeloController{
 
     //nuevo
     static function nuevo(){
-        require_once("vista/nuevoVista.php");
+        require_once("vista/nuevo.php");
     }
 
+    //guardar
+    static function guardar(){
+        $nombre= $_REQUEST['nombre'];
+        $precio= $_REQUEST['precio'];
+        $data= "'".$nombre."',".$precio;
+        $producto = new Modelo();
+        $dato = $producto->insertar("productos",$data);
+        header("location:".urlsite);
+    }    
+
     //metodo para mostrar un registro
+
+    //editar
+    static function editar(){
+        $id = $_REQUEST['id'];
+        $producto = new Modelo();
+        $dato = $producto->mostrar("productos","id=".$id);
+        require_once("vista/editar.php");
+    }
+
+    //actualizar
+    static function actualizar(){
+        $id = $_REQUEST['id'];
+        $nombre= $_REQUEST['nombre'];
+        $precio= $_REQUEST['precio'];
+        $data= "nombre='".$nombre."',precio=".$precio;
+        $producto = new Modelo();
+        $dato = $producto->actualizar("productos",$data,"id=".$id);
+        header("location:".urlsite);
+    }    
+
+    //eliminar
+    static function eliminar(){
+        $id = $_REQUEST['id'];
+        $producto = new Modelo();
+        $dato = $producto->eliminar("productos","id=".$id);
+        header("location:".urlsite);
+    }
+
 }

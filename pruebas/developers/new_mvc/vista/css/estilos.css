@@ -1,5 +1,6 @@
 .panel{
     max-width: 800px;
+    padding: 20px;
     margin: auto;
     background: gainsboro;
 }
@@ -8,6 +9,10 @@
     text-align: center;
     color: green;
 }   
+
+table{
+    width: 100%;
+}
 
 table,tr,td{
     border: 1px solid tan;
