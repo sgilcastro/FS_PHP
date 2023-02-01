@@ -18,7 +18,11 @@
     <body>
 
         <?php
-            include("Shape.php");
+            require("Shape.php");
+            require("Triangulo.php");
+            require("Rectangulo.php");
+            //include --> te da warning - 
+            //require --> peta el fichero - usarlo cuando es algo que tiene que usarse si o si
 
             $s1 = new Triangulo(2, 4);
             echo "El area del triangulo es: " . $s1->area();
