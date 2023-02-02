@@ -1,4 +1,7 @@
 <?php
+
+
+
 $people_info = [
     "customers" => [
         ["name" => "Andrew", "score" => 62.5],
@@ -29,6 +32,8 @@ $people_info = [
 // Agregamos banderas (constants) para obtener la cadena JSON en el formato deseado. https://www.php.net/manual/en/json.constants.php
 
 echo json_encode($people_info, JSON_PRETTY_PRINT|JSON_PRESERVE_ZERO_FRACTION);
+
+echo "<pre>".json_encode($people_info,JSON_PRETTY_PRINT|JSON_PRESERVE_ZERO_FRACTION)."<pre>";
 /* 
 { 
 "customers": [ 
