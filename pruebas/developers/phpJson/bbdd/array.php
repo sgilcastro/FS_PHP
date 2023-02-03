@@ -26,13 +26,4 @@ $array = Array (
     )
 );
 
-// convierto array en un nuevo archivo myfile.json
-$json = json_encode($array,JSON_PRETTY_PRINT|JSON_PRESERVE_ZERO_FRACTION);
-
-$bytes = file_put_contents("bbdd/myfile.json", $json);
-
-echo "The number of bytes written are $bytes.";
-
-echo "<pre>".$json."</pre>";
-
 ?>

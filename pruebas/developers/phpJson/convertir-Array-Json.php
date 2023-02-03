@@ -1,6 +1,6 @@
 <?php
 
-include("array.php");
+include("bbdd/array.php");
 
 $people_info = [
     "customers" => [

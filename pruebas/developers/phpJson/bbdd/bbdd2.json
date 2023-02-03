@@ -9,7 +9,6 @@
             "pw": "",
             "tareas": [
                 {
-                    "id_tarea": "1",
                     "titulo": "Mirar apuntes php",
                     "descripción": "",
                     "estado":"Pendiente",
@@ -17,7 +16,6 @@
                     "hora_fin": "2023-01-11T19:00:00.000Z"
                 },
                 {
-                    "id_tarea": "2",
                     "titulo": "Comprar pan",
                     "descripción": "",
                     "estado":"Pendiente",
@@ -35,7 +33,6 @@
             "pw": "",
             "tareas": [
                 {
-                    "id_tarea": "4",
                     "titulo": "Beber agua",
                     "descripción": "",
                     "estado":"A medias",
@@ -43,7 +40,6 @@
                     "hora_fin": "2023-01-11T19:00:00.000Z"
                 },
                 {
-                    "id_tarea": "5",
                     "titulo": "Bailar chachacha",
                     "descripción": "",
                     "estado":"",

@@ -24,9 +24,9 @@ $array = array(
     '10' => '2017-12-01 00:00:00',
 );
 
-file_put_contents('user.json', json_encode($array));
+file_put_contents('bbdd/user.json', json_encode($array));
 
-$fileContent = file_get_contents('user.json');
+$fileContent = file_get_contents('bbdd/user.json');
 
 echo "<pre>";
 print_r(json_decode($fileContent, true)); 

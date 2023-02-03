@@ -5,7 +5,7 @@ include("Signup.php");
 $signup1 = new Signup();
 $users = array();
 
-$users = file_get_contents('json/bbdd2.php');
+$users = file_get_contents('bbdd/bbdd2.php');
 /*
 echo "<pre>";
 print_r(json_decode($users, true)); 
