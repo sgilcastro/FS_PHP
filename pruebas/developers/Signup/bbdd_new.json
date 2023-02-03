@@ -1,0 +1,104 @@
+[
+    {
+        "id_user": 1,
+        "name": "Susana",
+        "surname": "Gil",
+        "user": "sgil",
+        "email": "susanagilcastro@gmail.com",
+        "pw": "1111",
+        "tareas": [
+            {
+                "titulo": "Mirar apuntes php",
+                "descripci\u00f3n": "",
+                "estado": "Pendiente",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            },
+            {
+                "titulo": "Comprar pan",
+                "descripci\u00f3n": "",
+                "estado": "Pendiente",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            }
+        ]
+    },
+    {
+        "id_user": 2,
+        "name": "Nombre",
+        "surname": "Apellido",
+        "user": "usuario",
+        "email": "email@email.com",
+        "pw": "2222",
+        "tareas": [
+            {
+                "titulo": "Beber agua",
+                "descripci\u00f3n": "",
+                "estado": "A medias",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            },
+            {
+                "titulo": "Bailar chachacha",
+                "descripci\u00f3n": "",
+                "estado": "",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            }
+        ]
+    },
+    {
+        "id_user": 3,
+        "name": "Afofaifa",
+        "surname": "L\u00f3pez",
+        "user": "Alopez",
+        "email": "Alopez@email.com",
+        "pw": "4444",
+        "tareas": []
+    },
+    {
+        "id_user": 4,
+        "name": "dsfsd",
+        "surname": "asdsdfsdfsdf",
+        "userName": "asddsfssdfscd",
+        "email": "vc zxczxdfsdggzx",
+        "pw": "zxccx",
+        "tareas": []
+    },
+    {
+        "id_user": 5,
+        "name": "dsfsd",
+        "surname": "asdsdfsdfsdf",
+        "userName": "asddsfssdfscd",
+        "email": "vc zxczxdfsdggzx",
+        "pw": "zxccx",
+        "tareas": []
+    },
+    {
+        "id_user": 6,
+        "name": "dsfsd",
+        "surname": "asdsdfsdfsdf",
+        "userName": "asddsfssdfscd",
+        "email": "vc zxczxdfsdggzx",
+        "pw": "zxccx",
+        "tareas": []
+    },
+    {
+        "id_user": 7,
+        "name": "dsfsd",
+        "surname": "asdsdfsdfsdf",
+        "userName": "asddsfssdfscd",
+        "email": "vc zxczxdfsdggzx",
+        "pw": "zxccx",
+        "tareas": []
+    },
+    {
+        "id_user": 8,
+        "name": "Rodri",
+        "surname": "Saiz",
+        "userName": "rodrisaiz@email.com",
+        "email": "rodrisaiz@email.com",
+        "pw": "6666",
+        "tareas": []
+    }
+]
