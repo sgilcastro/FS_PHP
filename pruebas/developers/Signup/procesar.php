@@ -13,8 +13,8 @@
     '<br>Email '.$email.
     '<br>Password '.$pw.'<br>';
     
-    $signup1 = new Signup();
+    $signup = new Signup();
     
-    print_r($signup1->addDataUser($name, $surname, $userName, $email, $pw));
+    print_r($signup->addUser($name, $surname, $userName, $email, $pw));
 
 ?>

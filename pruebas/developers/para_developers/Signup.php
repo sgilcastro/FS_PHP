@@ -11,12 +11,6 @@
         public $email;
         public $pw;
         public $tareas = array();
-        public $id_tarea;
-        public $titulo;
-        public $descripción;
-        public $estado;
-        public $hora_inicio;
-        public $hora_fin;
 
         function addDataUser($id_user, $name, $surname, $userName, $email, $pw)
         {

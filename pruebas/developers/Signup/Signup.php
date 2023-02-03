@@ -10,15 +10,8 @@
         public $email;
         public $pw;
         public $tareas = array();
-        public $id_tarea;
-        public $titulo;
-        public $descripción;
-        public $estado;
-        public $hora_inicio;
-        public $hora_fin;
 
-
-        function addDataUser($name, $surname, $userName, $email, $pw)
+        function addUser($name, $surname, $userName, $email, $pw)
         {
 
             //Obtengo los datos de la bbdd del archivo json y lo decodifico como un array
@@ -52,16 +45,11 @@
             echo '<br><br>';
             print_r($decoded_json);
 
-            //echo de el numero de elementos que hay despues de añadir el nuevo usuario ;
-
-            
             //Paso ese array a un archivo json nuevo.
             $json = json_encode($decoded_json,JSON_PRETTY_PRINT|JSON_PRESERVE_ZERO_FRACTION);
             $bytes = file_put_contents("bbdd_new.json", $json);
 
             //este echo lo uso para saber si ha pasado la info o no, me dice los bytes que se han añadido
-            
-            
             echo "<br>The number of bytes written are $bytes.<br>";
 
             //convierto el nuevo json de nuevo en array
@@ -77,7 +65,7 @@
             $posicionFinal_new = count($decoded_json_new);
 
             if ($posicionFinal < $posicionFinal_new){
-                return 'Se ha insertado el nuevo usuario. Ahora hay '.count($decoded_json_new).' usuarios.';
+                return 'Se ha insertado el nuevo usuario. Ahora hay '.$posicionFinal_new.' usuarios.';
             } else {
                 return 'Ha pasado algo chungo por que no se ha añadido el nuevo usuario';
             };
