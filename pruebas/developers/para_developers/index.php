@@ -4,58 +4,66 @@ include("Signup.php");
 
 $signup1 = new Signup();
 
-$users = array();
-$pepe = array();
-$arrayNew = array();
-
-//false=objeto
-//true=matriz asociativa
-
+//Obtengo los datos del archivo json y lo decodifico como un array
 $users_json = file_get_contents('bbdd2.json');
 $decoded_json = json_decode($users_json, true);
 
-echo '<br>Este es lo del archivo bbdd2<br>';
-echo $users_json;
+// Imprimo el array decodificada
+echo '<br><br>';
+print_r($decoded_json);
 echo '<br><br>';
 
-$users = $decoded_json['users'];
+//Creo un array con los datos del user
+$user = $signup1->addDataUser("4", "Susana", "Martín", "smartin", "smartin@correo.es", "8970");
 
-$newUser = json_encode($signup1->addDataUser(5, "Pepita","MArtinez", "Pmartinez", "email@email.com", "1234"));
+//Imprimo el array creada con print_r
+print_r($user);
 
-echo '<br>Este es lo del archivo bbdd2<br>';
-echo $newUser;
+//Añado el array $user en el array decodificada:
+$posicionFinal = count($decoded_json);
+
+//echo $posicionFinal para ver si es correcta;
+$decoded_json[$posicionFinal] = $user;
+
+echo '<br><br>';
+print_r($decoded_json);
+echo '<br><br>';
+echo $posicionFinal;
+
+
+//Quiero pasar ese array a un archivo json nuevo.
+
+$json = json_encode($decoded_json,JSON_PRETTY_PRINT|JSON_PRESERVE_ZERO_FRACTION);
+
+$bytes = file_put_contents("bbdd_new.json", $json);
+
+//este echo lo uso para saber si ha pasado la info o no, me dice los bytes que se han añadido
+echo "<br>The number of bytes written are $bytes.<br>";
+
+//convierto el nuevo json de nuevo en array
+$users_json_new = file_get_contents('bbdd_new.json');
+$decoded_json_new = json_decode($users_json_new, true);
+
+// Imprimo el nuevo array decodificada
+echo '<br><br>';
+print_r($decoded_json_new);
 echo '<br><br>';
 
-$arrayNew = $signup1->addUser($newUser);
+//contar la nueva array
 
-file_put_contents("myfile.json", json_encode($arrayNew));
+echo '<br>'.count($decoded_json_new).'<br>';
 
-print_r($arrayNew);
-
-
-/*
-echo "<pre>";
-print_r(json_decode($users, true)); 
-echo "</pre>";
-
-$signup1->addDataUser(4, "Susana", "Martín", "smartin", "smartin@correo.es", "8970");
-
-$signup1->addDataUser($users);
-
-echo "<pre>";
-print_r(json_decode($users, true)); 
-echo "</pre>";
+//==========para tener objeto en lugar de array del archivo json==========
 
 /*
-addData($id_user, $name, $surname, $user, $email, $pw);
+$users_json = file_get_contents('bbdd2.json');
+$decoded_json = json_decode($users_json, false);
 
-addUser($user);
+echo '<br><br>';
+print_r($decoded_json);
+echo '<br><br>';
 
-
-$objeto=new ObjetoClass();
-
-$objeto->altaUsuario(gjj,khkhk,kljkhjk); 
+var_dump($decoded_json);
 */
-
 
 ?>

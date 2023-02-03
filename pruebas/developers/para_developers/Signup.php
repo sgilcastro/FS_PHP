@@ -4,7 +4,7 @@
 
         public $users = array();
         public $user = array();
-        public $id_user;
+        public $id_user = "";
         public $name;
         public $surname;
         public $userName;
@@ -20,14 +20,18 @@
 
         function addDataUser($id_user, $name, $surname, $userName, $email, $pw)
         {
-            $user[] = $id_user;
-            $user[] = $name;
-            $user[] = $surname;
-            $user[] = $userName;
-            $user[] = $email;
-            $user[] = $pw;
-            $user[] = $this->tareas;
 
+            $user = array(
+            'id_user' => $id_user,
+            'name' => $name,
+            'surname' => $surname,
+            'userName' => $userName,
+            'email' => $email,
+            'pw' => $pw,
+            'tareas' => $this->tareas
+            );
+            
+            print_r($user);
             return $user;
         }
         
