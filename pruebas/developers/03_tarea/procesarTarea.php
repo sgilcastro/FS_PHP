@@ -15,6 +15,14 @@
     '<br>Hora de fin: '.$hora_fin.
     '<br>';
     
+
+
+
+    $consultarDb = new ConsultarDb;
+
+    print_r($signup->consultar("sgil"));
+    
+
     $tarea = new Tarea();
     
     print_r($tarea->addTarea($titulo, $descripcion, $estado, $hora_inicio, $hora_fin));

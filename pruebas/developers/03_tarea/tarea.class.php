@@ -1,6 +1,6 @@
 <?php
 
-    class Tarea {
+class Tarea{
 
         public $tarea = array();
         public $titulo = "";
@@ -27,16 +27,15 @@
 
             //Creo una array de la nueva tarea
             $tarea = array(
-            'titulo' => $id_user,
-            'descripcion' => $name,
-            'estado' => $surname,
-            'hora_inicio' => $userName,
-            'email' => $email,
+            'titulo' => $titulo,
+            'descripcion' => $descripcion,
+            'estado' => $estado,
+            'hora_inicio' => $hora_inicio,
             'hora_fin' => $pw,
             );
 
             //Imprimir para ver el array creada con print_r
-            //print_r($user);
+            print_r($user);
 
             //imprimo el numero de elementos de esa array
             echo '<br>Hay '.$posicionFinalTarea.' tareas.';
