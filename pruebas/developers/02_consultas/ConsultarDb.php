@@ -24,8 +24,12 @@ class ConsultarDb{
     $array = $decoded_json;
 
     foreach ($array as $posicion) {
-        $userName = $posicion['userName'];
+        $userName = $posicion;
         var_dump($userName);
+        foreach ($userName as $tareas) {
+                $tareas = $userName['tareas'];
+                var_dump($tareas);
+        }
 
 
 

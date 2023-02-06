@@ -1,6 +1,6 @@
 
 <?php   
-    include("Signup.php");
+    include("CrearTarea.php");
 
     $titulo = $_POST['titulo'];
     $descripcion = $_POST['descripcion'];
@@ -15,16 +15,8 @@
     '<br>Hora de fin: '.$hora_fin.
     '<br>';
     
-
-
-
-    $consultarDb = new ConsultarDb;
-
-    print_r($signup->consultar("sgil"));
+    $crearTarea = new CrearTarea();
     
-
-    $tarea = new Tarea();
-    
-    print_r($tarea->addTarea($titulo, $descripcion, $estado, $hora_inicio, $hora_fin));
+    print_r($crearTarea->addTarea($titulo, $descripcion, $estado, $hora_inicio, $hora_fin));
 
 ?>

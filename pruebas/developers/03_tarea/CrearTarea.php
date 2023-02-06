@@ -1,10 +1,11 @@
 <?php
 
-class Tarea{
+class CrearTarea{
 
         public $tarea = array();
         public $titulo = "";
         public $descripcion;
+        public $estado;
         public $hora_inicio;
         public $hora_fin;
         public $tareas = array();
@@ -16,14 +17,15 @@ class Tarea{
             $users_json = file_get_contents('bbdd_new.json');
             $decoded_json = json_decode($users_json, true);
 
-            //Debería buscar el elemento del usuario que va añadir la tarea y conseguir la posición y dar con el id_usuario
-            //=======================$id_user = ???????????
+            //Debería buscar el elemento del usuario que va añadir la tarea y conseguir la posición y dar con 
+            //la posición del usuario = posicionUser
+            //=======================$posicionUser = ???????????
             //====================== Buscar en $decoded_json o bien nos manda el id_user desde la página que venga,
-
+            $posicionUser = 1;
 
             //Cuento el numero de elementos del array de tareas de dentro del usuario para saber cual será la posición de la nueva tarea en el array
-            $posicionFinalTarea = count($decoded_json);
-
+            $posicionFinalTarea = count($decoded_json[$posicionUser]['tareas']);
+            
 
             //Creo una array de la nueva tarea
             $tarea = array(
@@ -31,18 +33,22 @@ class Tarea{
             'descripcion' => $descripcion,
             'estado' => $estado,
             'hora_inicio' => $hora_inicio,
-            'hora_fin' => $pw,
+            'hora_fin' => $hora_fin,
             );
 
             //Imprimir para ver el array creada con print_r
-            print_r($user);
+            print_r($tarea);
 
             //imprimo el numero de elementos de esa array
             echo '<br>Hay '.$posicionFinalTarea.' tareas.';
 
+            //========dentro del array $decoded_json del usuario $posicionUser tengo que añadir la array en el elemento 7 
+            //o Tareas en la posición $posicionFinalTarea
+            
             //Añado el array $tarea en el array decodificada $decoded_json de json, indicando la posición que irá:
-            //================= Tengo que añadir una array dentro de otra array =====  $decoded_json[id_usuario][$posicionFinal] = $user;
-            //========dentro del array $decoded_json del usuario $id_usuario tengo que añadir la array en el elemento 7 o Tareas en la posición $posicionFinalTarea
+            
+            $decoded_json[$posicionUser]['tareas'][$posicionFinalTarea] = $tarea;
+
             
             //echo el nuevo array generado con la nueva tarea;
             echo '<br><br>';
@@ -65,7 +71,16 @@ class Tarea{
             echo '<br><br>';
 
             //cuento las tareas dentro del array tareas[] del id_usuarios nueva array
-            //================ $posicionFinalTarea_new = count($decoded_json_new);
+
+            $posicionFinalTarea_new = count($decoded_json[$posicionUser]['tareas']);
+
+
+            $posicionFinalTarea_new = count($decoded_json_new[$posicionUser]['tareas']);
+            echo '<br><br>';
+            print_r($posicionFinalTarea_new);
+            echo '<br><br>';
+
+
 
             if ($posicionFinalTarea < $posicionFinalTarea_new){
                 return 'Se ha insertado la nueva tarea. Ahora hay '.$posicionFinalTarea_new.' tareas.';
