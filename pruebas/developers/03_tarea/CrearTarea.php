@@ -21,7 +21,7 @@ class CrearTarea{
             //la posición del usuario = posicionUser
             //=======================$posicionUser = ???????????
             //====================== Buscar en $decoded_json o bien nos manda el id_user desde la página que venga,
-            $posicionUser = 1;
+            $posicionUser = 3;
 
             //Cuento el numero de elementos del array de tareas de dentro del usuario para saber cual será la posición de la nueva tarea en el array
             $posicionFinalTarea = count($decoded_json[$posicionUser]['tareas']);

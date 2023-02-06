@@ -7,10 +7,11 @@
     <form action="procesarCrearTarea.php" method="post">
     titulo:<input name="titulo" type="text"><br>
     descripcion:<textarea name="descripcion" type="text"></textarea><br>
-    estado:<select name="estado">
-    <option selected>Nueva</option>
-    <option >En curso</option>
-    <option>Finalizada</option>
+    estado:<input name="estado" type="text"><br>
+    <select name="estado">
+    <option value="nueva" selected>Nueva</option>
+    <option value="en_curso" >En curso</option>
+    <option value="finalizada">Finalizada</option>
     </select><br>
     hora_inicio:<input name="hora_inicio" type="datetime-local"><br>
     hora_fin:<input name="hora_fin" type="datetime-local"><br>
