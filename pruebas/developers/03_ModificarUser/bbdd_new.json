@@ -1,0 +1,143 @@
+[
+    {
+        "id_user": 1,
+        "name": "Susana",
+        "surname": "Gil",
+        "userName": "sgil",
+        "email": "susanagilcastro@gmail.com",
+        "pw": "1111",
+        "tareas": [
+            {
+                "titulo": "Mirar apuntes php",
+                "descripcion": "",
+                "estado": "Pendiente",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            },
+            {
+                "titulo": "Comprar pan",
+                "descripcion": "",
+                "estado": "Pendiente",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            }
+        ]
+    },
+    {
+        "id_user": 2,
+        "name": "Nombre",
+        "surname": "Apellido",
+        "userName": "usuario",
+        "email": "email@email.com",
+        "pw": "2222",
+        "tareas": [
+            {
+                "titulo": "Beber agua",
+                "descripcion": "",
+                "estado": "A medias",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            },
+            {
+                "titulo": "Bailar chachacha",
+                "descripcion": "",
+                "estado": "",
+                "hora_inicio": "2023-01-11T19:00:00.000Z",
+                "hora_fin": "2023-01-11T19:00:00.000Z"
+            },
+            {
+                "titulo": "Ir a buscar traje a tintoreria",
+                "descripcion": "c\/laskdlad, 60",
+                "estado": "Nueva",
+                "hora_inicio": "2023-02-06T13:15",
+                "hora_fin": "2023-02-06T17:00"
+            },
+            {
+                "titulo": "Ir a buscar traje a tintoreria",
+                "descripcion": "c\/laskdlad, 60",
+                "estado": "Nueva",
+                "hora_inicio": "2023-02-06T13:15",
+                "hora_fin": "2023-02-06T17:00"
+            },
+            {
+                "titulo": "ir al cine",
+                "descripcion": "kmnaklnd askdn akd",
+                "estado": "Nueva",
+                "hora_inicio": "2023-02-06T11:17",
+                "hora_fin": "2023-02-13T14:20"
+            }
+        ]
+    },
+    {
+        "id_user": 3,
+        "name": "Afofaifa",
+        "surname": "L\u00f3pez",
+        "userName": "Alopez",
+        "email": "Alopez@email.com",
+        "pw": "4444",
+        "tareas": []
+    },
+    {
+        "id_user": 4,
+        "name": "Rodri",
+        "surname": "Saiz",
+        "userName": "rodrisaiz@email.com",
+        "email": "rodrisaiz@email.com",
+        "pw": "6666",
+        "tareas": [
+            {
+                "titulo": "asdsdsd",
+                "descripcion": "sadasdas",
+                "estado": "nueva",
+                "hora_inicio": "",
+                "hora_fin": "2023-02-25T15:45"
+            },
+            {
+                "titulo": "dasdasd",
+                "descripcion": "asdasdad",
+                "estado": "nueva",
+                "hora_inicio": "2023-02-06 11:47:03 AM",
+                "hora_fin": "2023-02-06T17:52"
+            },
+            {
+                "titulo": "sfsdfgs",
+                "descripcion": "dfdgs",
+                "estado": "nueva",
+                "hora_inicio": "2023-02-06T11:53",
+                "hora_fin": "2023-02-06T17:00"
+            },
+            {
+                "titulo": "sfsdfgs",
+                "descripcion": "dfdgs",
+                "estado": "nueva",
+                "hora_inicio": "2023-02-06T11:53",
+                "hora_fin": "2023-02-06T17:00"
+            },
+            {
+                "titulo": "sfsdfgs",
+                "descripcion": "dfdgs",
+                "estado": "nueva",
+                "hora_inicio": "2023-02-06T11:53",
+                "hora_fin": "2023-02-06T17:00"
+            }
+        ]
+    },
+    {
+        "id_user": 5,
+        "name": null,
+        "surname": null,
+        "userName": null,
+        "email": null,
+        "pw": null,
+        "tareas": []
+    },
+    {
+        "id_user": 6,
+        "name": "sdfsfs",
+        "surname": "fsdfs",
+        "userName": "sdgsdfg",
+        "email": "dfgdfg",
+        "pw": "1234",
+        "tareas": []
+    }
+]
