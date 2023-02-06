@@ -3,43 +3,29 @@
     class UpDateUser {
 
         public $user = array();
-        public $newDato = "";
-        public $posicionUser=0;
-        public $posicionCampo=0;
+
     public $posicion2;
 
 
         function upDateUser($newDato, $posicionUser, $posicionCampo)
         {
-
+            $decoded_json = array();
             //Obtengo los datos de la bbdd del archivo json y lo decodifico como un array
             $users_json = file_get_contents('bbdd_new.json');
             $decoded_json = json_decode($users_json, true);
 
             //Recupero el array del usuario que nos interesa
             //==============¿como?
-            /*
-            foreach ($array as $posicion) {
-                $userName = $posicion;
-                var_dump($userName);
-                foreach ($userName as $tareas) {
-                        $tareas = $userName['tareas'];
-                        var_dump($tareas);
-                }
-            }*/
+        $user = $decoded_json[$posicionUser];
 
-        $this->posicion2 = 2;
-            
-        foreach ($decoded_json[1] as $posicion) {
-            var_dump($users = $posicion["tareas"]);
-               
-               
-                
+       print_r($user);
 
 
-                //var_dump($users);
 
-            }
+        $user[$posicionCampo] = $newDato;
+        echo '<br>';
+        print_r($user);
+
 
             /*
             $user = //array de la posicion del User;

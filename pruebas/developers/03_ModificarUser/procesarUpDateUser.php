@@ -2,7 +2,7 @@
     include("UpDateUser.php");
 
     $newDato = "Josefa";
-    $posicionUser=1;
+    $posicionUser=0;
     $posicionCampo=1;
    
     $upDateUser = new UpDateUser();
