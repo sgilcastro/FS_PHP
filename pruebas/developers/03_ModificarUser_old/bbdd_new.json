@@ -72,7 +72,7 @@
         "id_user": 3,
         "name": "Afofaifa",
         "surname": "L\u00f3pez",
-        "userName": "GaviotaAlbina",
+        "userName": "Alopez",
         "email": "Alopez@email.com",
         "pw": "4444",
         "tareas": []
@@ -119,28 +119,25 @@
                 "estado": "nueva",
                 "hora_inicio": "2023-02-06T11:53",
                 "hora_fin": "2023-02-06T17:00"
-            },
-            {
-                "titulo": "asdasd",
-                "descripcion": "asdasd",
-                "estado": "nueva",
-                "hora_inicio": "2023-02-06T23:51",
-                "hora_fin": "2023-02-07T10:00"
-            },
-            {
-                "titulo": "asdas",
-                "descripcion": "dasd",
-                "estado": "nueva",
-                "hora_inicio": "2023-02-06T23:51",
-                "hora_fin": "2023-02-07T07:51"
-            },
-            {
-                "titulo": "asdas",
-                "descripcion": "dasd",
-                "estado": "nueva",
-                "hora_inicio": "2023-02-06T23:51",
-                "hora_fin": "2023-02-07T07:51"
             }
         ]
+    },
+    {
+        "id_user": 5,
+        "name": null,
+        "surname": null,
+        "userName": null,
+        "email": null,
+        "pw": null,
+        "tareas": []
+    },
+    {
+        "id_user": 6,
+        "name": "sdfsfs",
+        "surname": "fsdfs",
+        "userName": "sdgsdfg",
+        "email": "dfgdfg",
+        "pw": "1234",
+        "tareas": []
     }
 ]

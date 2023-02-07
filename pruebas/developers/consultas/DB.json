@@ -3,20 +3,20 @@
         "id_user": 1,
         "name": "Susana",
         "surname": "Gil",
-        "user": "sgil",
+        "userName": "sgil",
         "email": "susanagilcastro@gmail.com",
         "pw": "1111",
         "tareas": [
             {
                 "titulo": "Mirar apuntes php",
-                "descripci\u00f3n": "",
+                "descripcion": "",
                 "estado": "Pendiente",
                 "hora_inicio": "2023-01-11T19:00:00.000Z",
                 "hora_fin": "2023-01-11T19:00:00.000Z"
             },
             {
                 "titulo": "Comprar pan",
-                "descripci\u00f3n": "",
+                "descripcion": "",
                 "estado": "Pendiente",
                 "hora_inicio": "2023-01-11T19:00:00.000Z",
                 "hora_fin": "2023-01-11T19:00:00.000Z"
@@ -27,20 +27,20 @@
         "id_user": 2,
         "name": "Nombre",
         "surname": "Apellido",
-        "user": "usuario",
+        "userName": "usuario",
         "email": "email@email.com",
         "pw": "2222",
         "tareas": [
             {
                 "titulo": "Beber agua",
-                "descripci\u00f3n": "",
+                "descripcion": "",
                 "estado": "A medias",
                 "hora_inicio": "2023-01-11T19:00:00.000Z",
                 "hora_fin": "2023-01-11T19:00:00.000Z"
             },
             {
                 "titulo": "Bailar chachacha",
-                "descripci\u00f3n": "",
+                "descripcion": "",
                 "estado": "",
                 "hora_inicio": "2023-01-11T19:00:00.000Z",
                 "hora_fin": "2023-01-11T19:00:00.000Z"
@@ -51,7 +51,7 @@
         "id_user": 3,
         "name": "Afofaifa",
         "surname": "L\u00f3pez",
-        "user": "Alopez",
+        "userName": "Alopez",
         "email": "Alopez@email.com",
         "pw": "4444",
         "tareas": []
@@ -104,10 +104,11 @@
     {
         "id_user": 9,
         "name": "asdas",
-        "surname": "dasda",
-        "userName": "sdsda",
-        "email": "sdasda",
-        "pw": "sdsdas",
+        "surname": "asdad",
+        "userName": "dcfgdg",
+        "email": "dffgbfg",
+        "pw": "1234",
         "tareas": []
     }
+   
 ]

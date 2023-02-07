@@ -4,9 +4,6 @@
 
         public $user = array();
 
-    public $posicion2;
-
-
         function upDateUser($newDato, $posicionUser, $posicionCampo)
         {
             $decoded_json = array();
@@ -16,16 +13,7 @@
 
             //Recupero el array del usuario que nos interesa
             //==============¿como?
-        $user = $decoded_json[$posicionUser];
-
-       print_r($user);
-
-
-
-        $user[$posicionCampo] = $newDato;
-        echo '<br>';
-        print_r($user);
-
+        $user = $decoded_json[1];
 
             /*
             $user = //array de la posicion del User;
