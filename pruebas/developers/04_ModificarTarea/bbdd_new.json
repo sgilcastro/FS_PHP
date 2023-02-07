@@ -15,7 +15,7 @@
                 "hora_fin": "2023-01-11T19:00:00.000Z"
             },
             {
-                "titulo": "Comprar pan",
+                "titulo": "ese es el nuevo t\u00edtulo",
                 "descripcion": "",
                 "estado": "Pendiente",
                 "hora_inicio": "2023-01-11T19:00:00.000Z",
@@ -32,7 +32,7 @@
         "pw": "2222",
         "tareas": [
             {
-                "titulo": "Beber agua",
+                "titulo": "Tenemos que mirar le front con Tailwind",
                 "descripcion": "",
                 "estado": "A medias",
                 "hora_inicio": "2023-01-11T19:00:00.000Z",

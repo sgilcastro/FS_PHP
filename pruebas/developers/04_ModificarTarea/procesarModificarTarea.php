@@ -1,14 +1,14 @@
 
 <?php   
-    include("ModificarUser.php");
+    include("ModificarTarea.php");
 
     $newDato = $_POST['newDato'];
-
-    $posicionDato = $_POST['nombreDatoTarea'];
+    $posicionTarea = $_POST['posicionTarea'];   
+    $datoTarea = $_POST['datoTarea'];
     $posicionUser = $_POST['posicionUser'];
+
+    $objeto = new ModificarTarea();
     
-    $modificarUser = new ModificarUser();
-    
-    print_r($modificarUser->updateUser($posicionUser, $newDato, $posicionDato));
+    print_r($objeto->updateTarea($posicionUser, $posicionTarea, $newDato, $datoTarea));
 
 ?>
