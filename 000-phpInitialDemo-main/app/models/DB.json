@@ -118,5 +118,32 @@
         "email": "pgrillo@email.com",
         "pw": "1234",
         "tareas": []
+    },
+    {
+        "id_user": 11,
+        "name": null,
+        "surname": null,
+        "userName": null,
+        "email": null,
+        "pw": null,
+        "tareas": []
+    },
+    {
+        "id_user": 12,
+        "name": null,
+        "surname": null,
+        "userName": null,
+        "email": null,
+        "pw": null,
+        "tareas": []
+    },
+    {
+        "id_user": 13,
+        "name": null,
+        "surname": null,
+        "userName": null,
+        "email": null,
+        "pw": null,
+        "tareas": []
     }
 ]
