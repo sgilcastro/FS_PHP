@@ -2,6 +2,13 @@
 
 class SignupController extends ApplicationController
 {
+
+	public $name = $_POST['name'];
+    public $surname = $_POST['surname'];
+    public $userName = $_POST['userName'];
+    public $email = $_POST['email'];
+    public $pw = $_POST['pw'];
+
 	public function indexAction()
 	{
 		
@@ -10,7 +17,7 @@ class SignupController extends ApplicationController
 	public function signupAction()
 	{
 		$signup = new Signup();
-		$signup->addUser($_POST['name'], $_POST['surname'], $_POST['userName'], $_POST['email'], $_POST['pw']);
+		$signup->addUser($this->name, $this->surname, $this->userName, $this->email, $this->pw);
 	}
 	
 	public function checkAction()
