@@ -8,8 +8,9 @@
 
             public function read(){
 
+                //Obtengo los datos de la bbdd del archivo json y lo decodifico como un array
                 $decoded_json = json_decode(file_get_contents(__DIR__.'/DB.json'), true);
-               return $decoded_json;
+                return $decoded_json;
 
             }
 
