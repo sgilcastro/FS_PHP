@@ -1,6 +1,6 @@
 <?php
 
-class CreateTaskController extends ApplicationController
+class AddTaskController extends ApplicationController
 {
     public $titulo = $_POST['titulo'];
     public $descripcion = $_POST['descripcion'];
@@ -13,11 +13,11 @@ class CreateTaskController extends ApplicationController
 		
 	}
 
-	public function createTaskAction()
+	public function addTaskAction()
 	{
 
-        $createTask = new CreateTask();
-        $createTask->addTarea($this->titulo, $this->descripcion, $this->estado, $this->hora_inicio, $this->hora_fin);
+        $addTask = new AddTask();
+        $addTask->addTask($this->titulo, $this->descripcion, $this->estado, $this->hora_inicio, $this->hora_fin);
 
 	}
 	
