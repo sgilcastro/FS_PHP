@@ -1,6 +1,6 @@
 <?php
 
-class UpDataUserController extends ApplicationController
+class UpdateUserController extends ApplicationController
 {
 	public $newDato = $_POST['newDato'];
 	public $posicionDato = $_POST['posicionDato'];
@@ -11,10 +11,10 @@ class UpDataUserController extends ApplicationController
 		
 	}
 
-	public function upDataUserAction()
+	public function modifyUserAction()
 	{
-		$upDataUser = new UpDataUser();
-		$upDataUser->updataUser($this->posicionUser, $this->newDato, $this->posicionDato);
+		$updateUser = new UpdateUser();
+		$updateUser->updataUser($this->posicionUser, $this->newDato, $this->posicionDato);
 
 	}
 	

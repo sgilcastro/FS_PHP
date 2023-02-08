@@ -1,6 +1,6 @@
 <?php
 
-class UpDataTaskController extends ApplicationController
+class UpdateTaskController extends ApplicationController
 {
 
     public $newDato = $_POST['newDato'];
@@ -16,8 +16,8 @@ class UpDataTaskController extends ApplicationController
 	public function upDataTaskAction()
 	{
 
-		$upDataTask = new UpDataTask();
-		$upDataTask->upDataTask($this->posicionUser, $this->posicionTarea, $this->newDato, $this->datoTarea);
+		$updateTask = new UpdateTask();
+		$updateTask->modifyTask($this->posicionUser, $this->posicionTarea, $this->newDato, $this->datoTarea);
 	}
 	
 	public function checkAction()
