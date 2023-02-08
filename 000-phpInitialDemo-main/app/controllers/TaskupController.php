@@ -1,6 +1,6 @@
 <?php
 
-class AddTaskController extends ApplicationController
+class TaskupController extends ApplicationController
 {
 
 	public $titulo;
@@ -14,7 +14,7 @@ class AddTaskController extends ApplicationController
 		
 	}
 
-	public function addTaskAction()
+	public function taskupAction()
 	{
 		$this->titulo = $_POST['titulo'];
 		$this->descripcion = $_POST['descripcion'];
@@ -22,8 +22,8 @@ class AddTaskController extends ApplicationController
 		$this->hora_inicio = $_POST['hora_inicio'];
 		$this->hora_fin = $_POST['hora_fin'];
 		
-        $addTask = new AddTask();
-        $addTask->addTask($this->titulo, $this->descripcion, $this->estado, $this->hora_inicio, $this->hora_fin);
+        $taskup = new Taskup();
+        $taskup->addTask($this->titulo, $this->descripcion, $this->estado, $this->hora_inicio, $this->hora_fin);
 
 	}
 	

@@ -7,8 +7,7 @@
     <form action="procesarCrearTarea.php" method="post">
     titulo:<input name="titulo" type="text"><br>
     descripcion:<textarea name="descripcion" type="text"></textarea><br>
-    estado:<input name="estado" type="text"><br>
-    <select name="estado">
+    estado:<select name="estado">
     <option value="nueva" selected>Nueva</option>
     <option value="en_curso" >En curso</option>
     <option value="finalizada">Finalizada</option>
