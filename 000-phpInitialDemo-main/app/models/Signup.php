@@ -17,7 +17,6 @@
 
             $decoded_json = $this->read();
 
-
             $posicionFinal = count($decoded_json);
             $id_user = $posicionFinal + 1;
 
