@@ -10,6 +10,7 @@ class AddTask extends DB{
         public $hora_inicio;
         public $hora_fin;
         public $tareas = array();
+        
 
 
         function addTask($titulo, $descripcion, $estado, $hora_inicio, $hora_fin)
@@ -41,7 +42,7 @@ class AddTask extends DB{
             
             //Añado el array $tarea en el array decodificada $decoded_json de json, indicando la posición que irá:
             
-            $decoded_json[$this->posicionUser]['tareas'][$posicionFinalTarea] = $tarea;
+            $decoded_json = $decoded_json[$this->posicionUser]['tareas'][$posicionFinalTarea] = $tarea;
 
             
             //echo el nuevo array generado con la nueva tarea;
@@ -50,8 +51,10 @@ class AddTask extends DB{
 
             //Convertimos array a un archivo json nuevo
             $write = $this->write($decoded_json);
+            
 
-            header('Location: /web/');
+            //=====>>> NO se si este header es correcto. Al añadir la tarea va de nuevo a 
+            header('Location:/web/signuphome');
 
             //este echo lo uso para saber si ha pasado la info o no, me dice los bytes que se han añadido
             echo "<br>The number of bytes written are $bytes.<br>";
@@ -69,7 +72,7 @@ class AddTask extends DB{
             } else {
                 //=====> ¿Aqui iría un error?
                 return 'Ha pasado algo chungo por que no se ha añadido la nueva tarea';
-            };
+            }
 
         }
         

@@ -145,5 +145,14 @@
         "email": null,
         "pw": null,
         "tareas": []
+    },
+    {
+        "id_user": 14,
+        "name": "ksndksanfasad",
+        "surname": "asdasdasd",
+        "userName": "user546",
+        "email": "1234@email.com",
+        "pw": "1234",
+        "tareas": []
     }
 ]
