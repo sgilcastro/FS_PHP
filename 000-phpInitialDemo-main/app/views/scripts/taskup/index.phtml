@@ -1,0 +1,84 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva area</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- https://tailwindcomponents.com/component/tailwind-css-login-card -->
+</head>
+
+  <!-- <body>
+    <form action="/web/taskup" method="post">
+    titulo:<input name="titulo" type="text"><br>
+    descripcion:<input name="descripcion" type="textarea"></input><br>
+    estado:<input name="estado" type="text"><br>
+    </select><br>
+    hora_inicio:<input name="hora_inicio" type="datetime-local"><br>
+    hora_fin:<input name="hora_fin" type="datetime-local"><br>
+    <input type="submit" value="Enviar">
+    </form>
+  </body> -->
+
+  <body class="bg-gray-100">
+    <section>
+        <div class="max-w-2xl mx-auto my-16 bg-white px-10 py-5">
+            <h1 class="text-xl font-medium text-gray-900 dark:text-white py-5">Crear tarea</h1>
+
+            <form action="/web/taskup" method="POST">
+            <div  class="mb-6">
+                        <label for="titulo"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Título</label>
+                        <input type="text" id="titulo" name="titulo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Título" required></input>
+                    </div>
+                    <div>
+                        <label for="descripcion"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Descripción</label>
+                        <textarea type="textarea" id="descripcion" name="descripcion"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Descripción" required></textarea>
+                    </div>
+                <div class="mb-6">
+                    <label for="estado"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado</label>
+                        <select name="estado" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option value="nueva" selected>Nueva</option>
+                          <option value="en_curso">En curso</option>
+                          <option value="finalizada">Finalizada</option>
+                        </select>
+                    <!-- <input type="text" id="estado" name="estado"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Estado" required></input> -->
+                </div>
+                <div class="mb-6">
+                    <label for="hora_inicio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fecha de inicio</label>
+                    <input type="datetime-local" id="hora_inicio" name="hora_inicio"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="dd/mm/aa hh:mm" required></input>
+                </div>
+                <div class="mb-6">
+                    <label for="hora_fin"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fecha de fin</label>
+                    <input type="datetime-local" id="hora_fin" name="hora_fin"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="dd/mm/aa hh:mm" required></input>
+                </div>
+                <button type="submit" name="submit" value="Enviar"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+
+            </form>
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-300 py-5 text-right">
+                    No quiero crear la tarea 
+                    <a href="/web/home"
+                        class="text-blue-700 hover:underline dark:text-blue-500" >Salir</a>
+            </div>
+        </div>
+
+    </section>
+ 
+</body>
+
+
+</html>

@@ -1,5 +1,5 @@
-[
-    {
+{
+    "0": {
         "id_user": 1,
         "name": "Susana",
         "surname": "Gil",
@@ -23,7 +23,7 @@
             }
         ]
     },
-    {
+    "1": {
         "id_user": 2,
         "name": "Nombre",
         "surname": "Apellido",
@@ -47,38 +47,16 @@
             }
         ]
     },
-    {
+    "2": {
         "id_user": 3,
         "name": "Afofaifa",
         "surname": "L\u00f3pez",
         "userName": "Alopez",
         "email": "Alopez@email.com",
         "pw": "4444",
-        "tareas": [
-            {
-                "titulo": "dasdassd",
-                "descripcion": "asdasd",
-                "estado": "asasds",
-                "hora_inicio": "2023-02-05T00:02",
-                "hora_fin": "2023-02-03T00:02"
-            },
-            {
-                "titulo": "dasdasasad",
-                "descripcion": "asdasd",
-                "estado": "asasds",
-                "hora_inicio": "2023-02-05T00:02",
-                "hora_fin": "2023-02-03T00:02"
-            },
-            {
-                "titulo": "dasdcsasd",
-                "descripcion": "asdasd",
-                "estado": "asasds",
-                "hora_inicio": "2023-02-05T00:02",
-                "hora_fin": "2023-02-03T00:02"
-            }
-        ]
+        "tareas": []
     },
-    {
+    "3": {
         "id_user": 4,
         "name": "dsfsd",
         "surname": "asdsdfsdfsdf",
@@ -87,24 +65,16 @@
         "pw": "zxccx",
         "tareas": []
     },
-    {
+    "4": {
         "id_user": 5,
         "name": "dsfsd",
         "surname": "asdsdfsdfsdf",
         "userName": "asddsfssdfscd",
         "email": "vc zxczxdfsdggzx",
         "pw": "zxccx",
-        "tareas": [
-            {
-                "titulo": "dasdasd",
-                "descripcion": "asdasd",
-                "estado": "asasds",
-                "hora_inicio": "2023-02-05T00:02",
-                "hora_fin": "2023-02-03T00:02"
-            }
-        ]
+        "tareas": []
     },
-    {
+    "5": {
         "id_user": 6,
         "name": "dsfsd",
         "surname": "asdsdfsdfsdf",
@@ -113,15 +83,15 @@
         "pw": "zxccx",
         "tareas": [
             {
-                "titulo": "dasdasd",
-                "descripcion": "asdasd",
-                "estado": "asasds",
-                "hora_inicio": "2023-02-05T00:02",
-                "hora_fin": "2023-02-03T00:02"
+                "titulo": "sdfdsf",
+                "descripcion": "sdfsdf",
+                "estado": "sdfsdfsfd",
+                "hora_inicio": "2023-03-03T15:14",
+                "hora_fin": "2023-02-17T10:14"
             }
         ]
     },
-    {
+    "6": {
         "id_user": 7,
         "name": "dsfsd",
         "surname": "asdsdfsdfsdf",
@@ -130,7 +100,7 @@
         "pw": "zxccx",
         "tareas": []
     },
-    {
+    "7": {
         "id_user": 8,
         "name": "Rodri",
         "surname": "Saiz",
@@ -139,22 +109,33 @@
         "pw": "6666",
         "tareas": []
     },
-    {
+    "8": {
         "id_user": 9,
         "name": "asdas",
-        "surname": "dasda",
-        "userName": "sdsda",
-        "email": "sdasda",
-        "pw": "sdsdas",
-        "tareas": []
-    },
-    {
-        "id_user": 10,
-        "name": "Manuela",
-        "surname": "Castro",
-        "userName": "mcastro",
-        "email": "mcastro@email.com",
+        "surname": "asdad",
+        "userName": "dcfgdg",
+        "email": "dffgbfg",
         "pw": "1234",
         "tareas": []
+    },
+    "9": {
+        "id_user": 10,
+        "name": "Pepito",
+        "surname": "Grillo",
+        "userName": "pepitogrillo",
+        "email": "pgrillo@email.com",
+        "pw": "1234",
+        "tareas": []
+    },
+    "": {
+        "tareas": [
+            {
+                "titulo": "Lorem ipsum dolor sit amet",
+                "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo ultricies tellus, vitae elementum neque. Etiam dignissim gravida erat, sit amet ullamcorper odio accumsan pretium. Suspendisse potenti. Donec in tortor hendrerit nulla rhoncus hendrerit. Nunc et bibendum nibh, quis convallis justo. Suspendisse dapibus arcu et libero condimentum tincidunt. Duis diam est, rhoncus convallis semper sit amet, mollis id nibh. Curabitur nec hendrerit sem. Suspendisse id dui lorem. Donec commodo ut ante et pulvinar.",
+                "estado": "nueva",
+                "hora_inicio": "2023-02-11T16:20",
+                "hora_fin": "2023-02-24T13:20"
+            }
+        ]
     }
-]
+}
