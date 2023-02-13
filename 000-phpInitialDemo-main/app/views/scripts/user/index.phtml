@@ -1,0 +1,29 @@
+<?php
+  $user = $this->_user;
+
+?>
+
+<html>
+  <head>
+    <title>Modify User</title>
+  </head>
+  
+  <body>
+    <form action="/web/modifyuser" method="POST">
+    Name:<input name="newname" type="text" placeholder=<?php echo $user['name'];?> ><br>
+    Surname<input name="newsurname" type="text" placeholder=<?php echo $user['surname'];?>><br>
+    User name:<input name="newusername" type="text" placeholder=<?php echo $user['userName'];?>><br>
+    E-mail:<input name="newemail" type="text" placeholder=<?php echo $user['email'];?>><br>
+    Password:<input name="newpasword" type="password" placeholder=<?php echo $user['pw'];?>><br>
+  
+    </select><br>
+    <input type="submit" value="Enviar">
+    </form>
+    <form action="/web/deleteuser" method="POST">
+    </select><br>
+    <input type="submit" value="Delete user">
+  </body>
+
+
+
+</html>
