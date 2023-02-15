@@ -60,7 +60,7 @@
             $tiradasDado2 = $dado2->getTotalLanzarDado();
         
             $dado3->lanzarDado();
-            $figura1Dado1 = $dado3->darNombreFigura();
+            $figura1Dado3 = $dado3->darNombreFigura();
             $dado3->lanzarDado();
             $figura2Dado3 = $dado3->darNombreFigura();
             $dado3->lanzarDado();
