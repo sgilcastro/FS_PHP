@@ -38,6 +38,7 @@
             $dado3 = new PokerDice();
             $dado4 = new PokerDice();
             $dado5 = new PokerDice();
+            
             $tiradasDado1 = 0;
             $tiradasDado2 = 0;
             $tiradasDado3 = 0;
