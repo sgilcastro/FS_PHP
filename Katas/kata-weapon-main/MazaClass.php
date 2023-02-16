@@ -3,7 +3,7 @@
     class MazaClass extends ArmaClass{
 
         //Metodos
-        public function atacar(){
+        public function set(){
             return ' has atacado con una maza.';
         }
 
