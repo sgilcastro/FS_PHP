@@ -15,32 +15,16 @@
     </head>
     
     <body>
-        <?PHP
-
-        /* Variables ejercicio1 */
-        $a = 0;
-        $edad1 = 45;
-        $edad2 = 68;
-
-        /* Variables ejercicio2 */
-        
-
-        /* Variables ejercicio3 */
-        $num = 20;
-        /* Variables ejercicio4 */
-
-        /* Variables ejercicio5 */
-        $nota = 9;
-        /* Variables ejercicio6 */
-
-        ?>
-
-
         <h1>Exercici 1</h1>
 
         <?PHP
         /* Programa una funció que, donat un número qualsevol (per exemple, la teva edat)
         ens digui si és parell o imparell mitjançant un missatge per pantalla.*/
+
+        /* Variables ejercicio1 */
+        $a = 0;
+        $edad1 = 45;
+        $edad2 = 68;
 
         function parImpar($a) {
 
@@ -79,6 +63,9 @@
         <?PHP
         /* Imagina't que volem que compti fins a un nombre diferent de 10.
         Programa la funció perquè el final del compte estigui parametritzat.*/
+
+        /* Variables ejercicio3 */
+        $num = 20;
 
         function contar($num) {
             $num;
@@ -124,6 +111,12 @@
         Si la nota està entre 33% to 44%, el grau hauria de ser Tercera Divisió.
         Si la nota és menor a 33%, l'estudiant reprovarà.*/
         
+
+        
+        /* Variables ejercicio5 */
+        $nota = 9;
+
+
         function grado($nota, $notamax = 10) {
 
             $porcentaje = ($nota / $notamax) * 100;
