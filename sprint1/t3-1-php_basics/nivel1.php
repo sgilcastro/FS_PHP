@@ -17,6 +17,11 @@
         
         <!-- Variables -->
 
+
+        <!-- Ejercicios -->
+       
+        <h1>Exercici 1</h1>
+
         <?php
         /* Variables ejercicio1 */
         $nombre = "Susana";
@@ -24,43 +29,26 @@
         $altura = 1.64;
         $paro = false;
 
-        /* Variables ejercicio2 */
-        $hello = "Hello, World!";
-        $hello_may = strtoupper($hello);
-        $longitud = strlen($hello);
-        $invert = strrev($hello);
-        $curs = "Este es el curso de PHP";
-
-         /* Variables ejercicio3 */
-          define("CONSTANT", "Susana");
-
-        /* Variables ejercicio4 */
-        $X = 5;
-        $Y = 4;
-        $N = 5.35;
-        $M = 2.7;
-
-        /* Variables ejercicio5 */
-        $edad_amigos = array(40,46,39,32,48);
-        $edad_familia = array(47,7,48);
-        
-        ?>
-
-        <!-- Ejercicios -->
-       
-        <h1>Exercici 1</h1>
-
-        <?php
         /* Defineix una variable de cada tipus: integer,double,string i boolean. Després, imprimeix-les per pantalla.*/
         echo "Mi nombre es "
         . $nombre . ". Mido "
         . $altura . " mts. Tengo "
         . $edad . " años. Estoy en paro: "
         . $paro;
+        ?>
 
-        echo "<h1>Exercici 2</h1>";
-        
-        /*Imprimeix per pantalla Hello, World! utilitzant una variable.*/
+        <h1>Exercici 2</h1>
+
+        <?php
+
+       /*Imprimeix per pantalla Hello, World! utilitzant una variable.*/
+
+                /* Variables ejercicio2 */
+                $hello = "Hello, World!";
+                $hello_may = strtoupper($hello);
+                $longitud = strlen($hello);
+                $invert = strrev($hello);
+                $curs = "Este es el curso de PHP";
        
         echo $hello."<br>";
        
@@ -83,8 +71,13 @@
         <h1>Exercici 3</h1>
 
         <?php
+
         /* Crea una constant que contingui el teu nom i l'imprimeixi per pantalla.
         Has d'imprimir-la amb format de títol i lletra en negreta en HTML.*/
+
+        
+         /* Variables ejercicio3 */
+         define("CONSTANT", "Susana");
         
         echo "<h1><b>" . CONSTANT . "</b></h1>";
         
@@ -101,6 +94,12 @@
         La resta.
         El producte.
         El mòdul.*/
+
+                /* Variables ejercicio4 */
+                $X = 5;
+                $Y = 4;
+                $N = 5.35;
+                $M = 2.7;
 
         echo "<b>Siendo X = " . $X . " y Y = " . $Y . "</b><br>";
         echo "X + Y = " . ($X + $Y) . "<br>";
@@ -134,8 +133,14 @@
         <h1>Exercici 5</h1>
 
         <?php
+
         /*Crea dos arrays, un que inclogui 5 integers, i un altre que inclogui 3 integers.
         Afegeix un valor més a l'array que conté 3 integers.*/
+
+        
+        /* Variables ejercicio5 */
+        $edad_amigos = array(40,46,39,32,48);
+        $edad_familia = array(47,7,48);
         
         $edad_familia[] = 33;
 
