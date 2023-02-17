@@ -43,7 +43,6 @@
                     $this->figura = 7;
                     break;
             }
-            
             return $this->figura;
         }
  
