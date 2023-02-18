@@ -20,18 +20,6 @@
         <?php
             include("PokerDice.php");
 
-            //Coche vehiculo1 = new Coche("Kia","Ceed","Rojo",1.6); 
-            //Hacer el constructor del dado
-            /*
-            ArrayList<Vehiculos> listadoVehiculos = new ArrayList<Vehiculos>();
-       
-            listadoVehiculos.add(new Vehiculos("seat","Panda",1200,"Rojo"));
-            listadoVehiculos.add(new Coche("Dacia","Sandero",1300,"blanco",true));
-            listadoVehiculos.add(new Moto("Yamaha","Honda-600",600,"rojo",false,2));
-            listadoVehiculos.add(new Camion("Man","Correcaminos 20",3000,"verde",true,true));
-
-
-            */
 
             $dado1 = new PokerDice();
             $dado2 = new PokerDice();
