@@ -1,5 +1,0 @@
-    <!-- /contenido-->
-    
-    </div>
-</body>
-</html>
