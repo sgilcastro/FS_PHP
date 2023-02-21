@@ -13,6 +13,7 @@ class PokerDice {
     protected $figura;
     protected static $tiradas = 0;
     protected $contador;
+    //protected $todosDados = [];
 
     public function __construct (){
     }
@@ -22,13 +23,19 @@ class PokerDice {
     public function throw(){
         $numAleatorio = rand(0,5);
         $this->cara = $numAleatorio;
+        $this->getTotalThrows();
         $this->contador=++self::$tiradas; // cada vez que se lanza el dado, se cuenta el lanzamiento 
+        return $this->shapeName();
+
     }
+
     public function shapeName(){
         $this->figura = $this->figuras[$this->cara];
         return $this->figura;
     }
     public function getTotalThrows(){
+        //$this->todosDados[]=$this->figura;
+        //$this->contador = count($this->todosDados);
         return $this->contador;
     }
 

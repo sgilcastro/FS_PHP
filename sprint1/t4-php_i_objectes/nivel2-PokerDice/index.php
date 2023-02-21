@@ -14,7 +14,7 @@ A més, programa el mètode getTotalThrows que ha de mostrar el nombre total de 
     $dado = new PokerDice();
     $dado->throw();
     $dado->throw();
-    $dado->throw();
+    //echo $dado->throw();
     $dado1 = new PokerDice();
     $dado1->throw();
     $dado1->throw();
@@ -27,7 +27,6 @@ A més, programa el mètode getTotalThrows que ha de mostrar el nombre total de 
         //echo '<br>'.$i.'<br>';
         $dado = new PokerDice();
         $dado->throw();
-        $dado->shapeName();
         $tirada[]=$dado->getFigura();
         //var_dump($tirada).'<br>';
     }
