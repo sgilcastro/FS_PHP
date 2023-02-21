@@ -1,51 +1,39 @@
 <?php
-    class PokerDice {
-        //Atributos de clase
-        protected $cara;
-        protected $figura;
+/*
+Crea la classe PokerDice. Les cares d'un dau de pòquer tenen les següents figures: As, K, Q, J, 7 i 8.
+Crea el mètode throw que no fa altra cosa que tirar el dau, és a dir, 
+genera un valor aleatori per a l'objecte a què se li aplica el mètode.
+Crea també el mètode shapeName, que digui quina és la figura que ha sortit en l'última tirada del dau en qüestió.
+Realitza una aplicació que permeti tirar cinc daus de pòquer alhora.
+A més, programa el mètode getTotalThrows que ha de mostrar el nombre total de tirades entre tots els daus.
+*/  
+class PokerDice {
+    protected $figuras = ["As","K","Q","J","7","8"];
+    protected $cara;
+    protected $figura;
+    protected static $tiradas = 0;
+    protected $contador;
 
-        protected static $numLanzamientos = 0;
-    //un atributo de contar tiradas en la clase
-        //getters
-        public function getTotalLanzarDado() {
-            return self::$numLanzamientos;
-        }
-
-        //Metodos
-         public function lanzarDado() {
-            $this->cara = mt_rand(1, 6);
-            self::$numLanzamientos++;
-            return $this->cara;
-        }
-        public function darNombreFigura() {
-            $this->cara;
-            $this->figura = "";
-
-            switch ($this->cara){
-
-                case 1:
-                    $this->figura = "As";
-                    break;
-                case 2:
-                    $this->figura = "K";
-
-                    break;
-                case 3:
-                    $this->figura = "Q";
-                    break;
-                case 4:
-                    $this->figura = "J";
-                    break;
-                case 5:
-                    $this->figura = 8;
-                    break;
-                case 6:
-                    $this->figura = 7;
-                    break;
-            }
-            return $this->figura;
-        }
- 
+    public function __construct (){
     }
+    public function getFigura(){
+        return $this->figura;
+    }
+    public function throw(){
+        $numAleatorio = rand(0,5);
+        $this->cara = $numAleatorio;
+        $this->contador=++self::$tiradas; // cada vez que se lanza el dado, se cuenta el lanzamiento 
+    }
+    public function shapeName(){
+        $this->figura = $this->figuras[$this->cara];
+        return $this->figura;
+    }
+    public function getTotalThrows(){
+        return $this->contador;
+    }
+
+
+}
+
 
 ?>
